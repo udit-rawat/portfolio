@@ -54,7 +54,6 @@ export const projects: Project[] = [
       'On a hand-labelled set it reaches [[96% quote grounding::Grounding is a string match against the source text, not a model\'s opinion.]] and [[83% polarity accuracy::32-claim balanced golden set; 29 scored, 3 excluded as API errors. Eval harness in [the repo](https://github.com/udit-rawat/tribunal).]]. A typical verdict costs [[$0.0022 and 25.5 s::Read off a real verdict card from the web UI: the Great Wall claim, false at 90% confidence, one fabricated quote struck.]].',
     ],
     fallsShort: 'Strict accuracy is 66%. The usual miss is calling a misleading claim flatly false, which traces to a specific gap in the Judge prompt.',
-    figure: { src: '/previews/tribunal-verdict.jpg', alt: 'Tribunal verdict card: False, 90% confidence, 4 citations, 3 quotes verified, 1 struck', caption: 'A real verdict: one fabricated quote struck from the record.' },
   },
   {
     slug: 'planrail',
@@ -105,10 +104,7 @@ export const projects: Project[] = [
     chip: ['97.9% fewer tokens', 'same quality'],
     paper: '#F3DC86',
     ink: '#7F5E00',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/udit-rawat/ContextLab' },
-      { label: 'Live', href: 'https://context-lab-drab.vercel.app' },
-    ],
+    links: [{ label: 'GitHub', href: 'https://github.com/udit-rawat/ContextLab' }],
     stack: 'Python, RAG evaluation',
     body: [
       'A RAG-compression product advertised 60 to 80% token savings. I built four strategies and measured them against stuffing the whole context. Plain top-8 retrieval cut tokens by [[97.9%::126,053 tokens for full stuffing against 2,655 for top-8. Quality differences between strategies were not statistically significant. Code and data in [the repo](https://github.com/udit-rawat/ContextLab).]] at the same answer quality.',

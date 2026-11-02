@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project diagrams</title>
+<!-- High-res preview images drawn from real project data. Rendered by scripts/render_covers.sh (?only=<id>). -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,600;100,800&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; display: flex; flex-direction: column; gap: 24px; padding: 24px; font-family: 'Archivo', sans-serif; }
+  body.only { padding: 0; gap: 0; background: transparent; }
+  body.only .dg:not(.show) { display: none; }
+  .dg { width: 1200px; height: 750px; position: relative; overflow: hidden; padding: 56px 64px; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  h1 { font-weight: 800; font-size: 44px; letter-spacing: -0.03em; line-height: 1; }
+  .sub { margin-top: 12px; font-size: 19px; color: #555; max-width: 760px; line-height: 1.4; }
+
+  /* planrail */
+  #planrail { background: #efece3; color: #111; }
+  .pipe { position: absolute; left: 64px; right: 64px; top: 250px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .st { border: 3px solid #111; padding: 18px 16px; height: 230px; display: flex; flex-direction: column; background: #fff; position: relative; }
+  .st b { font-weight: 800; font-size: 19px; letter-spacing: .02em; }
+  .st p { margin-top: 10px; font-size: 14.5px; line-height: 1.4; color: #333; }
+  .st .mono { margin-top: auto; font-size: 12px; color: #555; }
+  .st.code { background: #111; color: #efece3; } .st.code p { color: #d9d6cc; } .st.code .mono { color: #bdb9ae; }
+  .st.dash { border-style: dashed; background: transparent; }
+  .st::after { content: ''; position: absolute; right: -16px; top: 50%; width: 14px; height: 3px; background: #111; }
+  .st:last-child::after { display: none; }
+  .tag { position: absolute; top: -14px; left: 12px; padding: 3px 8px; font: 500 11px/1 'IBM Plex Mono', monospace; background: #d32b1f; color: #fff; }
+  .rules { position: absolute; left: 64px; right: 64px; bottom: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .rules div { border-top: 3px solid #111; padding-top: 12px; font-size: 15px; line-height: 1.4; }
+  .rules b { display: block; font-weight: 800; margin-bottom: 4px; }
+  .sw { display: inline-block; width: 14px; height: 14px; margin-right: 8px; vertical-align: -1px; }
+
+  /* context lab */
+  #contextlab { background: #f3dc86; color: #111; }
+  .big { position: absolute; left: 56px; top: 188px; font-weight: 800; font-size: 210px; line-height: .8; letter-spacing: -0.07em; }
+  .big span { font-size: 90px; letter-spacing: -0.04em; }
+  .bigsub { position: absolute; left: 64px; top: 380px; font-size: 22px; line-height: 1.35; max-width: 420px; }
+  .chart { position: absolute; left: 560px; right: 64px; top: 196px; }
+  .row { display: grid; grid-template-columns: 170px 1fr 96px; gap: 14px; align-items: center; padding: 18px 0; border-top: 2px solid #111; font-size: 17px; }
+  .row:last-child { border-bottom: 2px solid #111; }
+  .bar { height: 26px; background: #111; min-width: 4px; }
+  .row b { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .note { position: absolute; left: 560px; right: 64px; bottom: 56px; font-size: 15px; line-height: 1.45; color: #3a3410; }
+</style>
+</head>
+<body>
+
+<section class="dg" id="planrail">
+  <h1>planrail</h1>
+  <p class="sub">The model proposes a training plan. Deterministic code decides whether it ships, and repairs what it can before asking the model again.</p>
+  <div class="pipe">
+    <div class="st"><b>GENERATE</b><p>Model proposes a structured weekly plan from the athlete profile.</p><span class="mono">llm / naive / template</span></div>
+    <div class="st code"><span class="tag">no LLM</span><b>VALIDATE</b><p>Rule check in code. The model never grades itself.</p><span class="mono">validate.py</span></div>
+    <div class="st code"><span class="tag">no LLM</span><b>REPAIR</b><p>Bounded local surgery from structured violations.</p><span class="mono">repair.py</span></div>
+    <div class="st dash"><b>REGENERATE</b><p>Only for what repair cannot fix, prompted with exact numbers.</p><span class="mono">retry budget</span></div>
+    <div class="st dash"><b>FLOOR</b><p>Conservative template, valid by construction, if all else fails.</p><span class="mono">fallback</span></div>
+    <div class="st"><b>PUBLISH</b><p>Markdown plan, every week checked.</p><span class="mono">0 extra LLM calls on both fixtures</span></div>
+  </div>
+  <div class="rules">
+    <div><b><span class="sw" style="background:#d32b1f"></span>Ramp gate</b>10% or a +3 km floor, whichever is more permissive, so low-volume runners can still build.</div>
+    <div><b><span class="sw" style="background:#1f4fa0"></span>ACWR governor</b>Acute over chronic load held in 0.8 to 1.3, applied only above 20 km/week chronic.</div>
+    <div><b><span class="sw" style="background:#f1c22e"></span>Across weeks</b>A Sunday long run then a Monday tempo is caught, not missed by a per-week loop.</div>
+  </div>
+</section>
+
+<section class="dg" id="contextlab">
+  <h1>Context Lab</h1>
+  <p class="sub">A RAG vendor claimed 60 to 80% token savings. Four strategies, measured against stuffing the whole context.</p>
+  <div class="big">97.9<span>%</span></div>
+  <p class="bigsub">fewer tokens per query with plain top-8 retrieval, at answer quality statistically tied with full context.</p>
+  <div class="chart">
+    <div class="mono" style="font-size:13px;margin-bottom:10px;color:#3a3410">tokens per query</div>
+    <div class="row"><span>Full context</span><div class="bar" style="width:100%"></div><b>126,053</b></div>
+    <div class="row"><span>Structure-aware</span><div class="bar" style="width:17.4%"></div><b>21,890</b></div>
+    <div class="row"><span>Retrieve + rerank</span><div class="bar" style="width:2.1%"></div><b>2,668</b></div>
+    <div class="row"><span>Top-8 retrieval</span><div class="bar" style="width:2.1%"></div><b>2,655</b></div>
+  </div>
+  <p class="note">The cleverer strategies did not beat plain top-8. Reported as a tie rather than the more flattering story.</p>
+</section>
+
+<script>
+  const only = new URLSearchParams(location.search).get('only')
+  if (only) { document.body.classList.add('only'); document.getElementById(only).classList.add('show') }
+</script>
+</body>
+</html>

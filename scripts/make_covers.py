@@ -57,10 +57,6 @@ def cover(slug: str, src: str, box, paper: str, ink: str, contrast: float, inver
     im = Image.open(SRC / src).convert("RGB")
     im = crop_frac(im, box)
 
-    # Full-colour preview for the hover window, same framing as the cover.
-    prev = ImageOps.fit(im, (900, 1170), method=Image.Resampling.LANCZOS)
-    prev.save(OUT_PREVIEW / f"{slug}.webp", quality=82)
-
     small = ImageOps.fit(im, (COVER_W // DITHER_SCALE, COVER_H // DITHER_SCALE), method=Image.Resampling.LANCZOS)
     g = ImageOps.grayscale(small)
     g = ImageOps.autocontrast(g, cutoff=1)
@@ -124,6 +120,38 @@ def make_ink(slug: str, src: str, box, ink: str, w: int = 380, contrast: float =
     print(f"{slug}-ink     <- {src}")
 
 
+# Full-resolution previews: the real image of each project, at its own aspect ratio.
+# Sources in covers-src/hires/ are 2x renders of the repo's own SVG diagrams, 2x
+# screenshots of the live sites, lossless repo screenshots, or diagrams drawn from
+# real project data in covers-design/diagrams.html.
+PREVIEWS = {
+    "tribunal":      ("hires/tribunal-architecture.png", None),
+    "planrail":      ("hires/planrail-diagram.png", None),
+    "muscle-memory": ("muscle.png", None),
+    "context-lab":   ("hires/contextlab-diagram.png", None),
+    "glassbox":      ("hires/glassbox-live.png", None),
+    "hrm":           ("hrm.png", None),
+    "reposignal":    ("hires/reposignal-report.png", None),
+    "animatic":      ("hires/animatic-reels.png", None),
+    "adamax":        ("hires/adamax.png", None),
+    "misaanjh":      ("hires/misaanjh.png", None),
+}
+PREVIEW_MAX_W = 1800
+
+
+def make_previews() -> None:
+    OUT_PREVIEW.mkdir(parents=True, exist_ok=True)
+    for slug, (src, box) in PREVIEWS.items():
+        im = Image.open(SRC / src).convert("RGB")
+        if box:
+            im = crop_frac(im, box)
+        if im.width > PREVIEW_MAX_W:
+            im = im.resize((PREVIEW_MAX_W, round(PREVIEW_MAX_W * im.height / im.width)), Image.Resampling.LANCZOS)
+        im.save(OUT_PREVIEW / f"{slug}.webp", quality=88, method=6)
+        print(f"preview {slug:14s} {im.size} <- {src}")
+
+
 if __name__ == "__main__":
+    make_previews()
     make_athens()
     make_ink("misaanjh", "misaanjh.jpg", (0.22, 0.0, 0.78, 1.0), "#3B4724")

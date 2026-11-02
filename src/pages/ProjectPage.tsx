@@ -91,11 +91,11 @@ export function ProjectPage() {
               <Folder project={p} eager />
             </div>
           </div>
-          <div className="overflow-hidden rounded-[14px] bg-card ring-1 ring-black/5">
+          <div className="flex items-center justify-center overflow-hidden rounded-[14px] bg-card p-3 ring-1 ring-black/5 sm:p-4">
             <img
               src={asset(`previews/${p.slug}.webp`)}
-              alt={`${p.title}: the real image the folder cover is printed from`}
-              className="h-full max-h-[620px] w-full object-cover object-top"
+              alt={`${p.title}: a real image from the project`}
+              className="block h-auto max-h-[620px] w-full rounded-[6px] object-contain"
             />
           </div>
         </div>
