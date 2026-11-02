@@ -1,4 +1,5 @@
-import type { CSSProperties } from 'react'
+import { useRef, useSyncExternalStore, type CSSProperties } from 'react'
+import { useInView } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { projects, type Project } from '../data'
 import { Folder, shade } from './Folder'
@@ -32,7 +33,23 @@ export function ProjectIndex() {
   )
 }
 
+/* True on touch screens, where nothing can be hovered. */
+const noHover = typeof window !== 'undefined' ? window.matchMedia('(hover: none)') : null
+function useTouch() {
+  return useSyncExternalStore(
+    (cb) => {
+      noHover?.addEventListener('change', cb)
+      return () => noHover?.removeEventListener('change', cb)
+    },
+    () => noHover?.matches ?? false,
+  )
+}
+
 function Card({ p, wide = false }: { p: Project; wide?: boolean }) {
+  // On touch screens the files fan out when the card reaches the middle of the screen.
+  const folderRef = useRef<HTMLDivElement>(null)
+  const touch = useTouch()
+  const centred = useInView(folderRef, { margin: '-35% 0px -35% 0px' })
   const bg = p.dark ? '#33332f' : shade(p.paper, 0.42)
   const style = { background: bg, color: p.dark ? '#ecebe6' : 'var(--color-ink)' } as CSSProperties
   return (
@@ -44,9 +61,10 @@ function Card({ p, wide = false }: { p: Project; wide?: boolean }) {
       }`}
     >
       <div
+        ref={folderRef}
         className={`shrink-0 ${wide ? 'w-[44%] max-w-[190px] sm:mt-16 sm:w-[36%]' : 'w-[50%] max-w-[180px]'}`}
       >
-        <Folder project={p} fan={wide ? 'up' : 'right'} />
+        <Folder project={p} fan={wide ? 'up' : 'right'} open={touch && centred} />
       </div>
       <div className="flex flex-1 flex-col">
         <div className={`flex items-baseline justify-between gap-3 ${wide ? 'sm:mt-1' : 'mt-6'}`}>

@@ -85,19 +85,27 @@ export function ProjectPage() {
           </aside>
         </div>
 
-        <div className="mt-16 grid gap-3 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-          <div className="flex items-center justify-center rounded-[14px] p-10" style={{ background: p.dark ? '#33332f' : shade(p.paper, 0.42) }}>
+        <div className="mt-12 grid gap-3 sm:mt-16 sm:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          <div className="order-2 flex items-center justify-center rounded-[14px] p-8 sm:order-none sm:p-10" style={{ background: p.dark ? '#33332f' : shade(p.paper, 0.42) }}>
             <div className="w-[70%] max-w-[300px]">
               <Folder project={p} eager />
             </div>
           </div>
-          <div className="flex items-center justify-center overflow-hidden rounded-[14px] bg-card p-3 ring-1 ring-black/5 sm:p-4">
+          <a
+            href={asset(`previews/${p.slug}.webp`)}
+            target="_blank"
+            rel="noopener"
+            className="group/img relative flex items-center justify-center overflow-hidden rounded-[14px] bg-card p-3 ring-1 ring-black/5 sm:p-4"
+          >
             <img
               src={asset(`previews/${p.slug}.webp`)}
               alt={`${p.title}: a real image from the project`}
               className="block h-auto max-h-[620px] w-full rounded-[6px] object-contain"
             />
-          </div>
+            <span className="mono absolute right-3 bottom-3 rounded-full bg-ink/80 px-2.5 py-1 text-[11px] text-ground opacity-90 transition-opacity sm:opacity-0 sm:group-hover/img:opacity-100">
+              Open full size ↗
+            </span>
+          </a>
         </div>
         {p.figure && (
           <figure className="mt-3">

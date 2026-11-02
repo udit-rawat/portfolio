@@ -23,15 +23,15 @@ export function Timeline() {
           Logged like a training run: one line, a checkpoint per role, newest first. Underlined numbers say how they were measured.
         </p>
 
-        <div ref={ref} className="relative mt-14 ml-[64px] sm:ml-[92px]">
+        <div ref={ref} className="relative mt-12 ml-[6px] sm:mt-14 sm:ml-[92px]">
           <div className="run-line">
             <motion.div className="run-line__fill h-full" style={{ scaleY: fill }} />
           </div>
 
           <ol className="space-y-16">
             {jobs.map((j) => (
-              <li key={j.org} className="relative pl-7 sm:pl-10">
-                <span className="mono absolute top-[3px] -left-[64px] w-[52px] text-right text-[11.5px] text-ink-faint sm:-left-[92px] sm:w-[76px]">
+              <li key={j.org} className="relative pl-6 sm:pl-10">
+                <span className="mono absolute top-[3px] -left-[92px] hidden w-[76px] text-right text-[11.5px] text-ink-faint sm:block">
                   {j.year}
                 </span>
                 <span
@@ -61,10 +61,10 @@ export function Timeline() {
                 </p>
 
                 {j.items && (
-                  <ul className="mt-5 space-y-3 border-l border-dashed border-rule pl-5">
+                  <ul className="mt-5 space-y-3 border-l border-dashed border-rule pl-4 sm:pl-5">
                     {j.items.map((it) => (
                       <li key={it.title} className="relative max-w-[62ch]">
-                        <span aria-hidden="true" className="absolute top-[9px] -left-[23px] size-[5px] rounded-full bg-signal" />
+                        <span aria-hidden="true" className="absolute top-[9px] -left-[19px] size-[5px] rounded-full bg-signal sm:-left-[23px]" />
                         <span className="text-[15px] font-semibold">{it.title}. </span>
                         <span className="text-[15px] leading-[1.6] text-ink-soft">
                           <Rich text={it.text} />
@@ -77,13 +77,13 @@ export function Timeline() {
             ))}
           </ol>
 
-          <p className="relative mt-16 pl-7 text-[15px] text-ink-soft sm:pl-10">
+          <p className="relative mt-16 pl-6 text-[15px] text-ink-soft sm:pl-10">
             <span aria-hidden="true" className="absolute top-[7px] -left-[3px] size-[7px] rounded-full bg-signal" />
             Checkpoint saved, November 2026. Training continues.
           </p>
         </div>
 
-        <div className="mt-20 grid gap-8 sm:grid-cols-[180px_1fr]">
+        <div className="mt-20 grid gap-4 sm:grid-cols-[180px_1fr] sm:gap-8">
           <h3 className="text-[19px] font-semibold tracking-tight">Papers</h3>
           <ul className="divide-y divide-rule border-y border-rule">
             {papers.map((p) => (

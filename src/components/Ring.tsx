@@ -59,7 +59,7 @@ export function Ring() {
 
   return (
     <section id="work" ref={section} aria-labelledby="work-h" className="relative">
-      <div className="relative flex h-[480px] sm:h-[min(100svh,880px)] sm:min-h-[560px] flex-col overflow-hidden">
+      <div className="relative flex h-[440px] flex-col overflow-hidden sm:h-[min(100svh,880px)] sm:min-h-[560px]">
         <div className="relative z-10 px-4 pt-6 sm:px-8">
         <div className="mx-auto flex max-w-[1120px] flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -67,7 +67,9 @@ export function Ring() {
               Work
             </h2>
             <p className="mt-2 text-[14px] text-ink-soft">
-              {projects.length} projects. Hover a folder to preview it, click to open.
+              {projects.length} projects.{' '}
+              <span className="hidden [@media(hover:hover)]:inline">Hover a folder to preview it, click to open.</span>
+              <span className="[@media(hover:hover)]:hidden">Tap a folder to open it, or browse the cards below.</span>
             </p>
           </div>
           <Filters value={filter} onChange={setFilter} />
@@ -162,7 +164,7 @@ function PreviewDesk({ project }: { project: Project }) {
 function dims() {
   if (typeof window === 'undefined') return { pane: 120, r: 420 }
   const w = window.innerWidth
-  if (w < 640) return { pane: 72, r: Math.min(220, w * 0.46) }
+  if (w < 640) return { pane: 58, r: Math.min(170, w * 0.38) }
   if (w < 1024) return { pane: 96, r: 330 }
   return { pane: 120, r: Math.min(470, w * 0.32) }
 }

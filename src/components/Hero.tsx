@@ -9,8 +9,8 @@ export function Hero() {
   return (
     <section className="ground-wash px-4 pt-28 pb-10 sm:px-8 sm:pt-36">
       <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10">
-        <div>
-        <dl className="mono grid w-max grid-cols-[auto_auto] gap-x-5 gap-y-0.5 border-l border-dotted border-ink-faint pl-3 text-[11.5px] leading-[1.6] text-ink-soft">
+        <div className="min-w-0">
+        <dl className="mono grid w-fit max-w-full grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-0.5 border-l border-dotted border-ink-faint pl-3 text-[11.5px] leading-[1.6] text-ink-soft">
           <dt className="text-ink-faint">based</dt>
           <dd>New Delhi, IN</dd>
           <dt className="text-ink-faint">coords</dt>
@@ -26,7 +26,7 @@ export function Hero() {
           </dd>
         </dl>
 
-        <h1 className="mt-10 max-w-[15ch] text-[clamp(2.6rem,7.4vw,5.6rem)] leading-[0.95] font-semibold tracking-[-0.04em] text-balance">
+        <h1 className="mt-8 max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.6rem)] sm:mt-10 leading-[0.95] font-semibold tracking-[-0.04em] text-balance">
           AI systems and websites, built to hold up.
         </h1>
 
@@ -55,7 +55,7 @@ export function Hero() {
         </div>
         </div>
 
-        <figure className="relative mx-auto w-full max-w-[400px] self-end lg:mx-0 lg:-mb-6">
+        <figure className="relative mx-auto w-full max-w-[400px] min-w-0 self-end lg:mx-0 lg:-mb-6">
           <img
             src={asset('art/school-of-athens.webp')}
             alt="Raphael's School of Athens: Plato and Aristotle walk forward under the arches, surrounded by philosophers deep in conversation."
