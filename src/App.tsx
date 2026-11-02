@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Ring } from './components/Ring'
@@ -48,7 +48,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<ProjectPage />} />
-        <Route path="*" element={<ProjectPage />} />
+        {/* /index.html and any other unknown address land on the home page. */}
+        <Route path="*" element={<Navigate to={{ pathname: '/', hash: window.location.hash }} replace />} />
       </Routes>
       <Footer />
     </>
