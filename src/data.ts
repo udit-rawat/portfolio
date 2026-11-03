@@ -317,13 +317,13 @@ export const steps = [
 ]
 
 export const contact = {
-  email: 'uditrawat1905@gmail.com',
+  email: 'hello@uditrawat.dev',
   github: 'https://github.com/udit-rawat',
   linkedin: 'https://linkedin.com/in/udit-r',
   resume: 'https://udit-rawat.github.io/resume/',
   resumePdf: 'https://udit-rawat.github.io/resume/Udit_Rawat_AI_Engineer.pdf',
   projectMail:
-    'mailto:uditrawat1905@gmail.com?subject=' +
+    'mailto:hello@uditrawat.dev?subject=' +
     encodeURIComponent('Project enquiry') +
     '&body=' +
     encodeURIComponent('Hi Udit,\n\nWhat I want to build:\n\nRough timeline:\n\nBudget range:\n'),
