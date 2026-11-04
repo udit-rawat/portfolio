@@ -13,6 +13,15 @@ export function ProjectPage() {
 
   useEffect(() => {
     document.title = p ? `${p.title}, Udit Rawat` : 'Not found, Udit Rawat'
+    if (p) {
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
+      if (!meta) {
+        meta = document.createElement('meta')
+        meta.name = 'description'
+        document.head.appendChild(meta)
+      }
+      meta.content = p.oneLiner
+    }
   }, [p])
 
   if (!p) {
