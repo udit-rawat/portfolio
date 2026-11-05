@@ -7,9 +7,9 @@ export function Footer() {
   return (
     <footer className="overflow-hidden px-4 pt-24 pb-6 sm:px-8">
       <div className="mx-auto max-w-[1400px]">
-        <p aria-label="Udit Rawat, AI engineer, New Delhi" className="display-wide text-[clamp(2.6rem,10.4vw,10rem)]">
+        <p aria-label="Udit Rawat, AI consultant, New Delhi" className="display-wide text-[clamp(2.6rem,10.4vw,10rem)]">
           <span className="block">Udit Rawat</span>
-          <span className="block">AI Engineer</span>
+          <span className="block">AI Consultant</span>
           <span className="block text-ink-faint">New Delhi, IN</span>
         </p>
         <div className="mt-14 flex flex-col gap-4 border-t border-rule pt-5 text-[13px] text-ink-soft sm:flex-row sm:items-center sm:justify-between">
@@ -21,8 +21,7 @@ export function Footer() {
             <li><a className="hover:text-ink" href={`mailto:${contact.email}`}>Email</a></li>
             <li><a className="hover:text-ink" href={contact.github}>GitHub</a></li>
             <li><a className="hover:text-ink" href={contact.linkedin}>LinkedIn</a></li>
-            <li><a className="hover:text-ink" href={contact.resume}>Resume</a></li>
-          </ul>
+                      </ul>
         </div>
       </div>
     </footer>

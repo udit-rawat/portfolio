@@ -59,7 +59,7 @@ export function Ring() {
 
   return (
     <section id="work" ref={section} aria-labelledby="work-h" className="relative">
-      <div className="relative flex h-[440px] flex-col overflow-hidden sm:h-[min(100svh,880px)] sm:min-h-[560px]">
+      <div className="relative flex h-auto flex-col overflow-hidden sm:h-[min(100svh,880px)] sm:min-h-[560px]">
         <div className="relative z-10 px-4 pt-6 sm:px-8">
         <div className="mx-auto flex max-w-[1120px] flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -69,14 +69,14 @@ export function Ring() {
             <p className="mt-2 text-[14px] text-ink-soft">
               {projects.length} projects.{' '}
               <span className="hidden [@media(hover:hover)]:inline">Hover a folder to preview it, click to open.</span>
-              <span className="[@media(hover:hover)]:hidden">Tap a folder to open it, or browse the cards below.</span>
+              <span className="[@media(hover:hover)]:hidden">Browse the projects below.</span>
             </p>
           </div>
           <Filters value={filter} onChange={setFilter} />
         </div>
         </div>
 
-        <div className="ring-stage relative flex-1" onPointerLeave={() => setHover(null)}>
+        <div className="ring-stage relative hidden flex-1 sm:block" onPointerLeave={() => setHover(null)}>
           <div ref={ring} className="ring" style={{ transform: 'rotateX(-14deg)' }}>
             {panes.map(({ p, copy }, i) => {
               const dim = filter !== 'all' && p.category !== filter

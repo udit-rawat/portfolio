@@ -280,3 +280,11 @@ html, body { overflow-x: clip; }
 @keyframes menu-in { from { opacity: 0; transform: translateY(-6px); } }
 .menu-in { animation: menu-in 0.18s cubic-bezier(0.2, 0.8, 0.2, 1); }
 @media (prefers-reduced-motion: reduce) { .menu-in { animation: none; } }
+
+/* Attention pulse for the "Start a project" call to action. */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(43 79 214 / 0.45); }
+  60% { box-shadow: 0 0 0 9px rgb(43 79 214 / 0); }
+}
+.cta-attention { animation: cta-pulse 2.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .cta-attention { animation: none; } }

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { contact } from '../data'
 
 const links = [
   { label: 'Work', href: '/#work' },
@@ -33,14 +32,6 @@ export function Nav() {
                 </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={contact.resume}
-                className="rounded-xl px-3 py-1.5 text-[14px] text-ink-soft transition-colors hover:bg-black/5 hover:text-ink"
-              >
-                Resume
-              </a>
-            </li>
           </ul>
           <button
             type="button"
@@ -53,14 +44,6 @@ export function Nav() {
           </button>
         </div>
 
-        <div className={`p-1.5 ${pill}`}>
-          <a
-            href={contact.projectMail}
-            className="block rounded-xl bg-ink px-3.5 py-1.5 text-[14px] font-medium whitespace-nowrap text-ground transition-colors hover:bg-black"
-          >
-            Start a project
-          </a>
-        </div>
 
         {open && (
             <ul
@@ -74,11 +57,6 @@ export function Nav() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a href={contact.resume} className="block rounded-xl px-3.5 py-3 text-[16px] active:bg-black/5">
-                  Resume
-                </a>
-              </li>
             </ul>
         )}
       </nav>

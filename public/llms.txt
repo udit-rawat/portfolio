@@ -1,6 +1,6 @@
 # Udit Rawat
 
-> AI engineer based in New Delhi. Builds production LLM systems, on-device models, multi-agent tools, and Shopify stores. Taking freelance website and AI enablement projects.
+> AI consultant based in New Delhi. Builds production LLM systems, on-device models, multi-agent tools, and Shopify stores. Taking freelance website and AI enablement projects.
 
 ## Services
 - AI audits: review of LLM cost, reliability, and evaluation for an existing product
@@ -19,6 +19,5 @@
 ## Contact
 - Email: hello@uditrawat.dev
 - Portfolio: https://uditrawat.dev/
-- Resume: https://udit-rawat.github.io/resume/
 - GitHub: https://github.com/udit-rawat
 - LinkedIn: https://linkedin.com/in/udit-r

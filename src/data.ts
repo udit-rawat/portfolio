@@ -321,6 +321,13 @@ export const services = [
     proofHref: '/work/misaanjh',
     includes: ['Storefront design and build', 'Welcome and order automation in Shopify Email and Flow', 'Mobile, speed, and tracking checks', 'A handover call so you can edit it yourself'],
   },
+  {
+    title: 'Bespoke build',
+    lede: 'A custom AI workflow designed around how your team already works. Scope and acceptance criteria are agreed up front, through the same six stages as every project.',
+    proof: 'Method: the same staged process and revision terms used on every project.',
+    proofHref: '/#journey',
+    includes: ['Start from the process you want to change', 'Scope and acceptance criteria agreed before the build', 'Built, tested, and handed over with documentation', 'Two rounds of revisions after handover'],
+  },
 ]
 
 export const alsoAvailable = [

@@ -32,25 +32,19 @@ export function Hero() {
 
         <p className="mt-7 max-w-[56ch] text-[clamp(1.05rem,1.6vw,1.22rem)] leading-[1.55] text-ink-soft">
           <Rich
-            text="I'm Udit, an AI engineer in New Delhi. I shipped a diabetes model that runs offline on a Snapdragon 680 phone, cut a health startup's LLM bill by [[54%::One LiteLLM gateway with model routing across 65+ agentic workflows in 5+ services, at TapHealth. Private codebase.]], and built misaanjh.com end to end. I take on website and AI projects directly, and I'm open to contract roles."
+            text="I'm Udit, an AI consultant in New Delhi. I shipped a diabetes model that runs offline on a Snapdragon 680 phone, cut a health startup's LLM bill by [[54%::One LiteLLM gateway with model routing across 65+ agentic workflows in 5+ services, at TapHealth. Private codebase.]], and built misaanjh.com end to end. I take on website and AI projects directly, and I'm open to contract roles."
           />
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a
             href={contact.projectMail}
-            className="rounded-full bg-ink px-5 py-3 text-[15px] font-medium text-ground transition-colors hover:bg-black"
+            className="rounded-full bg-ink px-5 py-3 text-[15px] font-medium text-ground transition-colors hover:bg-black cta-attention"
           >
             Start a project
           </a>
           <a href="#work" className="text-[15px] font-medium underline decoration-ink/30 underline-offset-4 hover:decoration-ink">
             See the work
-          </a>
-          <a
-            href={contact.resumePdf}
-            className="text-[15px] text-ink-soft underline decoration-ink/20 underline-offset-4 hover:text-ink"
-          >
-            Download resume (PDF)
           </a>
         </div>
         </div>

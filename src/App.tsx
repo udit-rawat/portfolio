@@ -11,7 +11,7 @@ import { ProjectPage } from './pages/ProjectPage'
 
 function Home() {
   useEffect(() => {
-    document.title = 'Udit Rawat, AI Engineer'
+    document.title = 'Udit Rawat, AI Consultant'
   }, [])
   return (
     <main>
