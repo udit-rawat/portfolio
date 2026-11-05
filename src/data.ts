@@ -294,26 +294,51 @@ export const papers = [
 
 export const services = [
   {
-    title: 'Websites',
-    lede: 'Fast marketing sites, portfolios and Shopify stores, designed and built by one person from first call to launch.',
-    proof: 'Proof: I built misaanjh.com end to end, from storefront to email automation.',
-    proofHref: '/work/misaanjh',
-    includes: ['Design straight in code or from your Figma', 'Shopify, or a custom site on Cloudflare at no hosting cost', 'Copy, SEO basics and analytics set up', 'A handover call so you can edit it yourself'],
+    title: 'Document processing workflows',
+    lede: 'Pull the data out of invoices, forms, contracts, or applications and send it to your sheet, CRM, or database. Anything unclear goes to a person for review, so nothing is silently wrong.',
+    proof: 'Method: the measured quality check behind Tribunal, which reaches 96% quote grounding on a 32 claim test set.',
+    proofHref: '/work/tribunal',
+    includes: ['Extraction rules agreed with you before the build', 'People review low confidence items', 'Output sent straight to your systems', 'A quality report from a test set you can keep'],
   },
   {
-    title: 'AI enablement',
-    lede: 'Add AI to a product that already works, with evals so you know it is right and a bill you can predict.',
-    proof: 'Proof: one gateway I designed cut a health startup\'s LLM spend by 54%.',
-    proofHref: '#experience',
-    includes: ['LLM features and agents, with an eval set before launch', 'LLM cost audit, routing and caching', 'Search and chat over your own documents', 'Private or offline models when data cannot leave'],
+    title: 'Support triage and resolution',
+    lede: 'Read every incoming request, sort it by type and urgency, draft the reply, and route anything sensitive to the right person.',
+    proof: 'Proof: the coaching agents I built at TapHealth, with 25 tools and bounded tool calling.',
+    proofHref: '/#work',
+    includes: ['Categories and urgency rules set with you', 'Drafted replies a person approves before sending', 'Refunds, complaints, and edge cases escalated', 'A weekly summary of volume and outcomes'],
+  },
+  {
+    title: 'Reliability and evals for AI features',
+    lede: 'Find out whether your AI feature really works. I build a test set, measure quality, and set up checks so a change that breaks something is caught before customers see it.',
+    proof: 'Proof: Tribunal, with measured results on a 32 claim set and a documented failure mode.',
+    proofHref: '/work/tribunal',
+    includes: ['A test set built from real examples', 'Quality scores before and after each change', 'Regression checks you can run yourself', 'A written report on where the feature fails'],
+  },
+  {
+    title: 'Shopify store with automation',
+    lede: 'A storefront built end to end, with email and Flow automation that runs on Shopify alone. Handed over ready for you to run.',
+    proof: 'Proof: Misaanjh, a live Shopify store with in-house email and Flow automation.',
+    proofHref: '/work/misaanjh',
+    includes: ['Storefront design and build', 'Welcome and order automation in Shopify Email and Flow', 'Mobile, speed, and tracking checks', 'A handover call so you can edit it yourself'],
   },
 ]
 
+export const alsoAvailable = [
+  'Lead follow-up automation',
+  'LLM cost and routing review',
+  'Internal document Q and A',
+  'UI automation for tools without an API',
+  'AI coding setup for engineering teams',
+  'Monthly support on systems I have built',
+]
+
 export const steps = [
-  { title: 'A 30-minute call', text: 'You tell me the problem; I tell you honestly whether I am the right person.' },
-  { title: 'A fixed-scope proposal', text: 'What gets built, how we will know it works, the price and the date.' },
-  { title: 'Weekly drops', text: 'Something you can click every week, not a reveal at the end.' },
-  { title: 'Handover', text: 'Code, accounts and a walkthrough. You own everything.' },
+  { title: 'Talk', text: 'A short call to understand the problem and what it costs you. I reply within a day.', doing: 'Tell me the problem, your goal, and any constraints.', gets: 'A written summary of the problem to confirm before we go further.' },
+  { title: 'Scope', text: 'We agree on the first piece of work, with a clear definition of done for each part.', doing: 'Review the scope and tell me what to change.', gets: 'A written scope you can sign off on, with acceptance criteria.' },
+  { title: 'Build', text: 'I build in short cycles with a weekly update.', doing: 'Check each update and send your feedback in one message.', gets: 'A working version you can see and test, not only a plan.' },
+  { title: 'Review', text: 'You test the work against the agreed criteria, and we fix anything that does not match.', doing: 'Test it and send your feedback together.', gets: 'Two rounds of revisions after handover, for defects and small adjustments to the agreed work. New steps are scoped separately.' },
+  { title: 'Handover', text: 'Everything is delivered with a walkthrough, so you can run it without me.', doing: 'Confirm the handover is complete.', gets: 'The code, documentation, access, and a walkthrough call.' },
+  { title: 'Keep going', text: 'If it works, we decide together on ongoing support or the next piece of work.', doing: 'Decide whether to continue.', gets: 'A monthly arrangement for ongoing work, with one named contact.' },
 ]
 
 export const contact = {

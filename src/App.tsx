@@ -4,8 +4,8 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Ring } from './components/Ring'
 import { ProjectIndex } from './components/ProjectIndex'
-import { Timeline } from './components/Timeline'
 import { Services } from './components/Services'
+import { Journey } from './components/Journey'
 import { Footer } from './components/Footer'
 import { ProjectPage } from './pages/ProjectPage'
 
@@ -18,7 +18,7 @@ function Home() {
       <Hero />
       <Ring />
       <ProjectIndex />
-      <Timeline />
+      <Journey />
       <Services />
     </main>
   )

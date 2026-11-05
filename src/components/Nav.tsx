@@ -4,7 +4,7 @@ import { contact } from '../data'
 
 const links = [
   { label: 'Work', href: '/#work' },
-  { label: 'Experience', href: '/#experience' },
+  { label: 'How it works', href: '/#journey' },
   { label: 'Services', href: '/#services' },
 ]
 
