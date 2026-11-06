@@ -2,8 +2,8 @@
 
 Udit Rawat's portfolio and freelance site, live at https://uditrawat.dev (Cloudflare Pages)
 
-Vite + React + TypeScript + Tailwind v4 + Motion. The resume PDF lives in the
-separate [resume](https://github.com/udit-rawat/resume) repo; this site links to it.
+Vite + React + TypeScript + Tailwind v4 + Motion. This is a consulting landing
+page with project case studies, not a resume site.
 
 ## Run locally
 

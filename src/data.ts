@@ -352,8 +352,6 @@ export const contact = {
   email: 'hello@uditrawat.dev',
   github: 'https://github.com/udit-rawat',
   linkedin: 'https://linkedin.com/in/udit-r',
-  resume: 'https://udit-rawat.github.io/resume/',
-  resumePdf: 'https://udit-rawat.github.io/resume/Udit_Rawat_AI_Engineer.pdf',
   projectMail:
     'mailto:hello@uditrawat.dev?subject=' +
     encodeURIComponent('Project enquiry') +
