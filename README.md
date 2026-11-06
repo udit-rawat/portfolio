@@ -1,6 +1,6 @@
 # portfolio
 
-Udit Rawat's portfolio and freelance site, live at https://udit-rawat.github.io/portfolio/
+Udit Rawat's portfolio and freelance site, live at https://uditrawat.dev (Cloudflare Pages)
 
 Vite + React + TypeScript + Tailwind v4 + Motion. The resume PDF lives in the
 separate [resume](https://github.com/udit-rawat/resume) repo; this site links to it.
@@ -8,7 +8,7 @@ separate [resume](https://github.com/udit-rawat/resume) repo; this site links to
 ## Run locally
 
     npm install
-    npm run dev        # http://localhost:5173/portfolio/
+    npm run dev        # http://localhost:5173/
 
 ## Edit content
 
@@ -32,11 +32,17 @@ Wikimedia Commons). Needs Pillow; the render script also needs Google Chrome.
 
 ## Deploy
 
-Every push to `main` builds the site and publishes it to GitHub Pages
-(`.github/workflows/deploy.yml`). The build copies `index.html` to `404.html` so
-links to `/portfolio/work/<slug>` work on a refresh.
+Hosted on Cloudflare Pages at https://uditrawat.dev. Every push to `main` builds
+and deploys automatically. The GitHub Pages site has been retired.
 
-To move to another host later (Cloudflare Pages, a custom domain), change
-`base` in `vite.config.ts` to `/` and point the host at `npm run build` / `dist`.
+`npm run build` does four things:
+1. Type-checks and builds the client bundle into `dist/`.
+2. Builds a server bundle (`dist-ssr/`) of the same app.
+3. Pre-renders every route (`/` and each `/work/<slug>`) into its own
+   `index.html`, with per-page title, description, canonical and Open Graph tags,
+   so pages are readable without JavaScript. `scripts/prerender.mjs` does this.
+4. Copies `index.html` to `404.html` and keeps `public/_redirects` for any unknown address.
+
+The route list comes from `src/data.ts`. Add a project there and it gets its own page on the next build.
 
 Design notes and the deliberate exceptions to them: `docs/anti-slop.md`.

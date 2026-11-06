@@ -42,6 +42,7 @@ function useTouch() {
       return () => noHover?.removeEventListener('change', cb)
     },
     () => noHover?.matches ?? false,
+    () => false,
   )
 }
 

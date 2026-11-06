@@ -40,6 +40,11 @@ function ScrollManager() {
   return null
 }
 
+function NotFoundRedirect() {
+  const { hash } = useLocation()
+  return <Navigate to={{ pathname: '/', hash }} replace />
+}
+
 export default function App() {
   return (
     <>
@@ -49,7 +54,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<ProjectPage />} />
         {/* /index.html and any other unknown address land on the home page. */}
-        <Route path="*" element={<Navigate to={{ pathname: '/', hash: window.location.hash }} replace />} />
+        <Route path="*" element={<NotFoundRedirect />} />
       </Routes>
       <Footer />
     </>
