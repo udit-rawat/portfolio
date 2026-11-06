@@ -15,7 +15,7 @@ function headFor(url: string): string {
   const project = projects.find((p) => url === `/work/${p.slug}`)
   const title = project ? `${project.title}, Udit Rawat` : HOME_TITLE
   const description = project ? project.oneLiner : HOME_DESCRIPTION
-  const canonical = `${SITE}${url === '/' ? '/' : url}`
+  const canonical = url === '/' ? `${SITE}/` : `${SITE}${url}/`
   const image = project ? `${SITE}/covers/${project.slug}.webp` : `${SITE}/covers/tribunal.webp`
 
   const tags = [

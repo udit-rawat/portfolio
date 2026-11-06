@@ -9,12 +9,12 @@
 - Shopify storefronts with email and Flow automation
 
 ## Projects
-- [Tribunal](https://uditrawat.dev/work/tribunal): multi-agent fact-checker with a deterministic citation verifier. 96% quote grounding on a 32-claim golden set.
+- [Tribunal](https://uditrawat.dev/work/tribunal/): multi-agent fact-checker with a deterministic citation verifier. 96% quote grounding on a 32-claim golden set.
 - [LLM gateway at TapHealth](https://uditrawat.dev/): 54% lower LLM spend across 65+ workflows (private codebase).
 - [Offline diabetes model](https://uditrawat.dev/): quantized Qwen model running fully on a Snapdragon phone at 380 MB.
-- [Misaanjh](https://uditrawat.dev/work/misaanjh): live Shopify storefront with in-house email and Flow automation.
-- [Context Lab](https://uditrawat.dev/work/context-lab): benchmark of repo context strategies, with cost per answer.
-- [Glassbox](https://uditrawat.dev/work/glassbox): GPT built from first principles in PyTorch, with a live attention visualizer.
+- [Misaanjh](https://uditrawat.dev/work/misaanjh/): live Shopify storefront with in-house email and Flow automation.
+- [Context Lab](https://uditrawat.dev/work/context-lab/): benchmark of repo context strategies, with cost per answer.
+- [Glassbox](https://uditrawat.dev/work/glassbox/): GPT built from first principles in PyTorch, with a live attention visualizer.
 
 ## Contact
 - Email: hello@uditrawat.dev
