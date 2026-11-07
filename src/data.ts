@@ -225,6 +225,8 @@ export const projects: Project[] = [
     body: [
       'I built the entire website: storefront, collections and product pages, the Sleep Ritual range, checkout offers, and the welcome-email automation. The client wanted everything in-house on Shopify, so the automation runs on Shopify Email and Flow with no third-party tools.',
       'Before launch I audited the store for leaks, such as a welcome discount reaching buyers who had already paid because consent is pre-ticked at checkout in India, and fixed each one.',
+      'Timeline: store created 29 May 2026, first product added 17 June 2026, and the build completed by mid-September 2026.',
+      '“Udit created our whole Shopify store from scratch: the main page, the product and collection page designs, our checkout deals and the welcome email automation. Everything was completed by mid-September 2026, and we paid him in full. The site has been live and running well since launch. Udit suggested cash on delivery and set up promo-code tracking as part of the checkout deals.” Isha, Founder, Misaanjh',
     ],
   },
 ]
