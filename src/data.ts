@@ -51,7 +51,7 @@ export const projects: Project[] = [
     stack: 'Python, LangGraph, MCP, LanceDB, RAGAS',
     body: [
       'A Prosecutor agent and a Defender agent argue opposite sides of a claim over evidence retrieved just in time. Before the Judge rules, a deterministic verifier strikes any quote that does not appear word for word in the source. No model grades its own output.',
-      'On a hand-labelled set it reaches [[96% quote grounding::Grounding is a string match against the source text, not a model\'s opinion.]] and [[83% polarity accuracy::32-claim balanced golden set; 29 scored, 3 excluded as API errors. Eval harness in [the repo](https://github.com/udit-rawat/tribunal).]]. A typical verdict costs [[$0.0022 and 25.5 s::Read off a real verdict card from the web UI: the Great Wall claim, false at 90% confidence, one fabricated quote struck.]].',
+      'On a hand-labelled set it reaches [[96% quote grounding::Grounding is a string match against the source text, not a model\'s opinion.]] and [[83% polarity accuracy::32-claim balanced golden set; 29 scored, 3 excluded as API errors. Eval harness in [the repo](https://github.com/udit-rawat/tribunal).]]. A typical verdict costs [[$0.0022 and 25.5 s::Read off a real verdict card from the web UI, a paid-model run (the free-tier setup costs $0 and takes about 15 s). The Great Wall claim, false at 90% confidence, one fabricated quote struck.]].',
     ],
     fallsShort: 'Strict accuracy is 66%. The usual miss is calling a misleading claim flatly false, which traces to a specific gap in the Judge prompt.',
   },
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     category: 'agents',
     year: '2026',
     role: 'Solo, open source',
-    oneLiner: 'I tested a RAG vendor\'s 60 to 80% savings claim instead of trusting it.',
+    oneLiner: 'I built four retrieval strategies to test a coding tool\'s 60 to 80% savings claim against full-context stuffing.',
     points: ['Four retrieval strategies, one baseline', 'Top-8 retrieval matched full context', 'Reported the tie, not a nicer story'],
     chip: ['97.9% fewer tokens', 'same quality'],
     paper: '#F3DC86',
@@ -267,7 +267,7 @@ export const jobs: Job[] = [
     summary: 'Promoted from intern to engineer in under two months. Shipped models and agents to a diabetes app used daily.',
     items: [
       { title: 'Offline diabetes model', text: 'With Eli Lilly. Runs fully on a Snapdragon 680 phone: [[380 MB, under 890 ms::Qwen 0.6B/1.5B fine-tuned with LoRA, quantized to GGUF Q4_K_M, 3× smaller than the start. Measured on the target phone with no network. Private codebase.]], with [[98% out-of-scope refusal::A separate ONNX INT8 classifier decides scope, so the language model never judges itself.]].' },
-      { title: 'LLM gateway', text: 'One LiteLLM gateway with model routing cut LLM spend by [[54%::Across 65+ agentic workflows in 5+ microservices, routing between OpenAI, Anthropic and open-source models. Instructor for structured outputs, Langfuse tracing. Private codebase.]].' },
+      { title: 'LLM gateway', text: 'One LiteLLM gateway routes LLM calls across heavy, fast and vision classes, with ordered fallbacks and retries. One nudge pipeline\'s LLM cost fell by [[85%::After the April P0 fixes, which also cut latency 20% and storage 60%. Private codebase.]].' },
       { title: 'Coaching agents', text: 'Five stateful LangGraph agents with long-term memory across 25 tools. Lab-report OCR went from [[40 s to 15 s::End-to-end report processing before and after the async OCR/PDF pipeline, streamed over SSE.]].' },
       { title: 'Nudge engine', text: 'Replaced a rules engine with a DSPy pipeline serving [[5,000+ users::Production users at TapHealth. Habit classification and message generation run as separate steps.]].' },
     ],

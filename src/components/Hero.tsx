@@ -32,7 +32,7 @@ export function Hero() {
 
         <p className="mt-7 max-w-[56ch] text-[clamp(1.05rem,1.6vw,1.22rem)] leading-[1.55] text-ink-soft">
           <Rich
-            text="I'm Udit, an AI consultant in New Delhi. I shipped a diabetes model that runs offline on a Snapdragon 680 phone, cut a health startup's LLM bill by [[54%::One LiteLLM gateway with model routing across 65+ agentic workflows in 5+ services, at TapHealth. Private codebase.]], and built misaanjh.com end to end. I take on website and AI projects directly, and I'm open to contract roles."
+            text="I'm Udit, an AI consultant in New Delhi. I shipped a diabetes model that runs offline on a Snapdragon 680 phone, cut one nudge pipeline's LLM cost by [[85%::Measured on TapHealth's nudge pipeline after its April P0 fixes, which also cut latency 20% and storage 60%. Private codebase.]], and built misaanjh.com end to end. I take on website and AI projects directly, and I'm open to contract roles."
           />
         </p>
 
