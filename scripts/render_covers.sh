@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 SLUGS=("$@")
-[ ${#SLUGS[@]} -eq 0 ] && SLUGS=(tribunal planrail muscle-memory context-lab glassbox hrm reposignal animatic adamax misaanjh clean-file ad2client)
+[ ${#SLUGS[@]} -eq 0 ] && SLUGS=(tribunal planrail muscle-memory context-lab glassbox hrm reposignal animatic adamax misaanjh clean-file ad2client paper2paid)
 mkdir -p public/covers .render
 for s in "${SLUGS[@]}"; do
   "$CHROME" --headless=new --hide-scrollbars --force-device-scale-factor=2 \

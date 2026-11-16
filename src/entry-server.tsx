@@ -4,6 +4,7 @@ import App from './App.tsx'
 import { projects, contact } from './data.ts'
 import { IMMIGRATION_TITLE, IMMIGRATION_DESCRIPTION } from './pages/ImmigrationPage.tsx'
 import { ADS_TITLE, ADS_DESCRIPTION } from './pages/AdsPage.tsx'
+import { PAPER_TITLE, PAPER_DESCRIPTION } from './pages/PaperPage.tsx'
 
 const SITE = 'https://uditrawat.dev'
 const HOME_TITLE = 'Udit Rawat, AI Consultant'
@@ -14,6 +15,7 @@ const HOME_DESCRIPTION =
 const DEMOS: Record<string, { title: string; description: string; cover: string }> = {
   '/immigration': { title: IMMIGRATION_TITLE, description: IMMIGRATION_DESCRIPTION, cover: 'clean-file' },
   '/ad2client': { title: ADS_TITLE, description: ADS_DESCRIPTION, cover: 'ad2client' },
+  '/paper2paid': { title: PAPER_TITLE, description: PAPER_DESCRIPTION, cover: 'paper2paid' },
 }
 
 /* Every page that gets its own static HTML file at build time. */
