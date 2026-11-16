@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion, useScroll } from 'motion/react'
-import { categories, projects, type Category, type Project } from '../data'
+import { categories, projectHref, projects, type Category, type Project } from '../data'
 import { Folder, shade } from './Folder'
 
 const COPIES = 3 // sebneil's ring is dense; each project appears three times around it
@@ -84,7 +84,7 @@ export function Ring() {
               return (
                 <Link
                   key={`${p.slug}-${copy}`}
-                  to={`/work/${p.slug}`}
+                  to={projectHref(p)}
                   className="ring__pane"
                   data-dim={dim}
                   tabIndex={first && !dim ? 0 : -1}
@@ -116,7 +116,7 @@ export function Ring() {
               <motion.button
                 key={hover.slug}
                 type="button"
-                onClick={() => navigate(`/work/${hover.slug}`)}
+                onClick={() => navigate(projectHref(hover))}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 8 }}

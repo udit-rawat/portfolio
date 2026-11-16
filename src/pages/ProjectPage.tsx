@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { categories, projects } from '../data'
+import { categories, projectHref, projects } from '../data'
 import { Folder, shade } from '../components/Folder'
 import { Rich } from '../components/Rich'
 import { asset } from '../asset'
@@ -126,7 +126,7 @@ export function ProjectPage() {
         )}
 
         <Link
-          to={`/work/${next.slug}`}
+          to={projectHref(next)}
           className="group mt-24 flex items-center justify-between gap-6 border-t border-rule pt-6"
         >
           <div>

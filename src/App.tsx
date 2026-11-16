@@ -8,6 +8,7 @@ import { Services } from './components/Services'
 import { Journey } from './components/Journey'
 import { Footer } from './components/Footer'
 import { ProjectPage } from './pages/ProjectPage'
+import { ImmigrationPage } from './pages/ImmigrationPage'
 
 function Home() {
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<ProjectPage />} />
+        <Route path="/immigration" element={<ImmigrationPage />} />
         {/* /index.html and any other unknown address land on the home page. */}
         <Route path="*" element={<NotFoundRedirect />} />
       </Routes>

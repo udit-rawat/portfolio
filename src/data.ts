@@ -6,10 +6,11 @@
   Links inside a receipt use [label](url).
 */
 
-export type Category = 'agents' | 'scratch' | 'tools' | 'client'
+export type Category = 'demo' | 'agents' | 'scratch' | 'tools' | 'client'
 
 export const categories: { id: Category | 'all'; label: string }[] = [
   { id: 'all', label: 'All' },
+  { id: 'demo', label: 'Demos' },
   { id: 'agents', label: 'Agents and evals' },
   { id: 'scratch', label: 'Built from scratch' },
   { id: 'tools', label: 'Tools' },
@@ -18,6 +19,8 @@ export const categories: { id: Category | 'all'; label: string }[] = [
 
 export type Project = {
   slug: string
+  /** Where the folder opens, when the project has its own page instead of /work/<slug>. */
+  href?: string
   title: string
   category: Category
   year: string
@@ -34,6 +37,9 @@ export type Project = {
   fallsShort?: string
   figure?: { src: string; alt: string; caption: string }
 }
+
+/* The address a project's folder and links open. */
+export const projectHref = (p: Project) => p.href ?? `/work/${p.slug}`
 
 export const projects: Project[] = [
   {
@@ -112,25 +118,24 @@ export const projects: Project[] = [
     fallsShort: 'The cleverer strategies did not beat plain top-8. I reported the tie instead of the more flattering result.',
   },
   {
-    slug: 'glassbox',
-    title: 'glassbox',
-    category: 'scratch',
+    slug: 'clean-file',
+    href: '/immigration',
+    title: 'Clean File',
+    category: 'demo',
     year: '2026',
-    role: 'Solo, open source',
-    oneLiner: 'A GPT written in pure PyTorch, with a live attention visualizer.',
-    points: ['No HuggingFace, every block tested', 'RoPE, SwiGLU, GQA, BPE from scratch', 'Diagram generated from the real config'],
-    chip: ['12% fewer params', 'ppl 4.8', '11M'],
-    paper: '#8DCDCB',
-    ink: '#0B3D3E',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/udit-rawat/glassbox' },
-      { label: 'Live visualizer', href: 'https://udit-rawat.github.io/glassbox/' },
-    ],
-    stack: 'Python, PyTorch',
+    role: 'Product, for immigration consultants',
+    oneLiner: 'Checks every name, date and number across an immigration file before it goes in.',
+    points: ['Cross-checks forms against documents', 'Flags the mismatches officers look for', 'Drafts client follow-ups in their own language'],
+    chip: ['live demo', '14 documents', '4 flags'],
+    paper: '#F1E7D2',
+    ink: '#1F2F4A',
+    links: [{ label: 'Try the demo', href: '/immigration' }],
+    stack: 'React, Motion. Review pipeline in development.',
     body: [
-      'Attention, RMSNorm, RoPE, SwiGLU, grouped-query attention and a BPE tokenizer, each shipped and tested before the next was added. A same-seed ablation got a better validation loss with [[12% fewer parameters::Same seed, same data, two architectures: validation loss 1.48 against 1.50.]]. Scaled up, it reaches [[perplexity 4.8::11M-parameter model, 133M TinyStories tokens, 49 minutes on a free Colab T4.]].',
-      'The architecture diagram in the visualizer is generated from the model config and test-locked to the real parameter counts, not drawn by hand.',
+      'A second review for spousal, visitor and work-permit files: names, dates, income and relationship history checked across every form and document, with a record showing nothing was changed. The licensed consultant decides everything.',
+      'The demo walks through a made-up file, from a sponsor in Brampton and an applicant in Ludhiana, and shows the four kinds of mismatch it catches.',
     ],
+    fallsShort: 'The demo is scripted. The review pipeline behind it is being built with our first pilot firms.',
   },
   {
     slug: 'hrm',
@@ -352,6 +357,7 @@ export const steps = [
 
 export const contact = {
   email: 'hello@uditrawat.dev',
+  booking: 'https://calendar.app.google/DcnGVWRMq77gXdJi7',
   github: 'https://github.com/udit-rawat',
   linkedin: 'https://linkedin.com/in/udit-r',
   projectMail:

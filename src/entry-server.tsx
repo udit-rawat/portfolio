@@ -2,6 +2,7 @@ import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { projects, contact } from './data.ts'
+import { IMMIGRATION_TITLE, IMMIGRATION_DESCRIPTION } from './pages/ImmigrationPage.tsx'
 
 const SITE = 'https://uditrawat.dev'
 const HOME_TITLE = 'Udit Rawat, AI Consultant'
@@ -9,12 +10,13 @@ const HOME_DESCRIPTION =
   'Udit Rawat builds AI systems and websites that hold up in production. Offline models on phones, agents with evals, LLM cost cuts, and Shopify stores. Taking freelance projects.'
 
 /* Every page that gets its own static HTML file at build time. */
-export const routes = ['/', ...projects.map((p) => `/work/${p.slug}`)]
+export const routes = ['/', '/immigration', ...projects.filter((p) => !p.href).map((p) => `/work/${p.slug}`)]
 
 function headFor(url: string): string {
   const project = projects.find((p) => url === `/work/${p.slug}`)
-  const title = project ? `${project.title}, Udit Rawat` : HOME_TITLE
-  const description = project ? project.oneLiner : HOME_DESCRIPTION
+  const immigration = url === '/immigration'
+  const title = project ? `${project.title}, Udit Rawat` : immigration ? IMMIGRATION_TITLE : HOME_TITLE
+  const description = project ? project.oneLiner : immigration ? IMMIGRATION_DESCRIPTION : HOME_DESCRIPTION
   const canonical = url === '/' ? `${SITE}/` : `${SITE}${url}/`
   const image = project ? `${SITE}/covers/${project.slug}.webp` : `${SITE}/covers/tribunal.webp`
 
@@ -29,7 +31,7 @@ function headFor(url: string): string {
     `<meta property="og:image" content="${image}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
   ]
-  if (!project) {
+  if (!project && !immigration) {
     const person = {
       '@context': 'https://schema.org',
       '@graph': [

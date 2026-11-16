@@ -1,22 +1,25 @@
 import { useRef, useSyncExternalStore, type CSSProperties } from 'react'
 import { useInView } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { projects, type Project } from '../data'
+import { projectHref, projects, type Project } from '../data'
 import { Folder, shade } from './Folder'
 
 /*
-  The scannable version of the ring: fanout.sh style cards. Shipped websites and
-  products come first as wide cards, since that is what a client is looking for.
+  The scannable version of the ring: fanout.sh style cards. Live demos and shipped
+  websites come first as wide cards, since that is what a client is looking for.
 */
 export function ProjectIndex() {
-  const featured = projects.filter((p) => p.category === 'client')
-  const rest = projects.filter((p) => p.category !== 'client')
+  // Demos lead, then shipped client work. With an odd count the first card spans the full row.
+  const isFeatured = (p: Project) => p.category === 'demo' || p.category === 'client'
+  const featured = [...projects.filter((p) => p.category === 'demo'), ...projects.filter((p) => p.category === 'client')]
+  const rest = projects.filter((p) => !isFeatured(p))
+  const spanFirst = featured.length % 2 === 1
   return (
     <section aria-label="All projects" className="px-4 pt-4 pb-24 sm:px-8">
       <div className="mx-auto max-w-[1120px]">
         <ul className="grid gap-3 md:grid-cols-2 xl:gap-4">
-          {featured.map((p) => (
-            <li key={p.slug}>
+          {featured.map((p, i) => (
+            <li key={p.slug} className={spanFirst && i === 0 ? 'md:col-span-2' : undefined}>
               <Card p={p} wide />
             </li>
           ))}
@@ -55,7 +58,7 @@ function Card({ p, wide = false }: { p: Project; wide?: boolean }) {
   const style = { background: bg, color: p.dark ? '#ecebe6' : 'var(--color-ink)' } as CSSProperties
   return (
     <Link
-      to={`/work/${p.slug}`}
+      to={projectHref(p)}
       style={style}
       className={`group relative flex h-full rounded-[14px] p-5 hover:z-10 focus-visible:z-10 sm:p-6 ${
         wide ? 'flex-col gap-6 sm:flex-row sm:items-stretch' : 'flex-col'
