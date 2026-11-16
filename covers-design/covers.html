@@ -212,6 +212,23 @@
     font: 400 26px/.9 'Archivo Black', sans-serif; letter-spacing: .01em; }
   .pp-paid small { display: block; font: 800 8.5px/1.2 'Inter Tight', sans-serif; letter-spacing: .16em; margin-top: 5px; }
   .pp-foot { left: 16px; bottom: 14px; font: 800 9.5px/1.45 'Inter Tight', sans-serif; letter-spacing: .1em; color: #1c3324; }
+
+  /* ============ 14. Doc2Answer: Swiss International Style (strict grid, grotesk, one accent) ============ */
+  #doc2answer { --paper: #e4dff0; --ink: #231a3a; }
+  .sw2-grid { left: 0; top: 0; width: 300px; height: 390px;
+    background-image: linear-gradient(90deg, rgb(35 26 58 / .12) 1px, transparent 1px); background-size: 75px 100%; }
+  .sw2-kick { left: 16px; right: 16px; top: 14px; display: flex; justify-content: space-between;
+    font: 800 9.5px/1 'Inter Tight', sans-serif; letter-spacing: .14em; color: #231a3a; }
+  .sw2-title { left: 14px; top: 34px; font: 900 61px/.84 'Inter Tight', sans-serif; letter-spacing: -0.055em; color: #231a3a; }
+  .sw2-title span { color: #6a52c9; }
+  .sw2-q { left: 16px; right: 16px; top: 168px; padding: 8px 10px; background: #fff; border-radius: 8px;
+    font: 500 11.5px/1.3 'Inter Tight', sans-serif; color: #231a3a; box-shadow: 0 8px 16px -10px rgba(35,26,58,.5); }
+  .sw2-lines { left: 16px; right: 16px; top: 222px; font: 500 12.5px/1.55 'Inter Tight', sans-serif; color: #231a3a; }
+  .sw2-lines mark { background: linear-gradient(transparent 14%, #ffe14d 14%, #ffe14d 86%, transparent 86%); color: inherit; padding: 0 1px; }
+  .sw2-lines i { display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: #231a3a;
+    color: #fff; font: 800 9px/1 'Inter Tight', sans-serif; font-style: normal; vertical-align: 1px; margin-left: 2px; }
+  .sw2-foot { left: 16px; right: 16px; bottom: 14px; display: flex; justify-content: space-between; align-items: flex-end;
+    font: 800 9.5px/1.45 'Inter Tight', sans-serif; letter-spacing: .1em; color: #231a3a; border-top: 2px solid #231a3a; padding-top: 7px; }
 </style>
 </head>
 <body>
@@ -335,6 +352,16 @@
   </div>
   <div class="abs pp-paid"><div>SAME<br>DAY<small>INVOICED</small></div></div>
   <div class="abs pp-foot">DELIVERED 1:05 PM<br>INVOICED 4:12 PM</div>
+</section>
+
+<!-- 14. Doc2Answer: Swiss International Style -->
+<section class="poster" id="doc2answer">
+  <div class="abs sw2-grid"></div>
+  <div class="abs sw2-kick"><span>86 DOCUMENTS</span><span>1,240 PAGES</span></div>
+  <div class="abs sw2-title">DOC<span>2</span><br>ANSWER</div>
+  <div class="abs sw2-q">Is the furnace at 14 Elm St still under warranty?</div>
+  <div class="abs sw2-lines">Yes. <mark>Installed March 2021 and registered</mark><i>1</i>, so <mark>parts are covered for 10 years</mark><i>2</i>. Photograph the old board first<i>3</i>.</div>
+  <div class="abs sw2-foot"><span>EVERY ANSWER<br>CITES ITS PAGE</span><span>NO SOURCE,<br>NO ANSWER</span></div>
 </section>
 
 <!-- 6. Hierarchical Reasoner: Bauhaus -->

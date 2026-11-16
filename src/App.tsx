@@ -11,6 +11,7 @@ import { ProjectPage } from './pages/ProjectPage'
 import { ImmigrationPage } from './pages/ImmigrationPage'
 import { AdsPage } from './pages/AdsPage'
 import { PaperPage } from './pages/PaperPage'
+import { DocsPage } from './pages/DocsPage'
 
 function Home() {
   useEffect(() => {
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/immigration" element={<ImmigrationPage />} />
         <Route path="/ad2client" element={<AdsPage />} />
         <Route path="/paper2paid" element={<PaperPage />} />
+        <Route path="/doc2answer" element={<DocsPage />} />
         {/* /index.html and any other unknown address land on the home page. */}
         <Route path="*" element={<NotFoundRedirect />} />
       </Routes>
