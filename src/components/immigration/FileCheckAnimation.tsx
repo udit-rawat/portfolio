@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView, useReducedMotion } from 'motion/react'
 import { MiniDoc, type DocKind, type Mark } from './MiniDoc'
-import { springs } from './springs'
+import { springs } from '../shared/springs'
 
 /*
   A 30-second story of one file being checked, told in six scenes over

@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { contact } from '../data'
 import { FileCheckAnimation } from '../components/immigration/FileCheckAnimation'
 import { ExampleFile } from '../components/immigration/ExampleFile'
-import { BookingNudge } from '../components/immigration/BookingNudge'
-import { SpringButton } from '../components/immigration/SpringButton'
+import { BookingNudge } from '../components/shared/BookingNudge'
+import { SpringButton } from '../components/shared/SpringButton'
 
 export const IMMIGRATION_TITLE = 'Clean File: file review for immigration consultants'
 export const IMMIGRATION_DESCRIPTION =

@@ -3,22 +3,29 @@ import { StaticRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { projects, contact } from './data.ts'
 import { IMMIGRATION_TITLE, IMMIGRATION_DESCRIPTION } from './pages/ImmigrationPage.tsx'
+import { ADS_TITLE, ADS_DESCRIPTION } from './pages/AdsPage.tsx'
 
 const SITE = 'https://uditrawat.dev'
 const HOME_TITLE = 'Udit Rawat, AI Consultant'
 const HOME_DESCRIPTION =
   'Udit Rawat builds AI systems and websites that hold up in production. Offline models on phones, agents with evals, LLM cost cuts, and Shopify stores. Taking freelance projects.'
 
+/* Demo pages that live at their own address, with their own title and poster. */
+const DEMOS: Record<string, { title: string; description: string; cover: string }> = {
+  '/immigration': { title: IMMIGRATION_TITLE, description: IMMIGRATION_DESCRIPTION, cover: 'clean-file' },
+  '/ad2client': { title: ADS_TITLE, description: ADS_DESCRIPTION, cover: 'ad2client' },
+}
+
 /* Every page that gets its own static HTML file at build time. */
-export const routes = ['/', '/immigration', ...projects.filter((p) => !p.href).map((p) => `/work/${p.slug}`)]
+export const routes = ['/', ...Object.keys(DEMOS), ...projects.filter((p) => !p.href).map((p) => `/work/${p.slug}`)]
 
 function headFor(url: string): string {
   const project = projects.find((p) => url === `/work/${p.slug}`)
-  const immigration = url === '/immigration'
-  const title = project ? `${project.title}, Udit Rawat` : immigration ? IMMIGRATION_TITLE : HOME_TITLE
-  const description = project ? project.oneLiner : immigration ? IMMIGRATION_DESCRIPTION : HOME_DESCRIPTION
+  const demo = DEMOS[url]
+  const title = project ? `${project.title}, Udit Rawat` : demo ? demo.title : HOME_TITLE
+  const description = project ? project.oneLiner : demo ? demo.description : HOME_DESCRIPTION
   const canonical = url === '/' ? `${SITE}/` : `${SITE}${url}/`
-  const image = project ? `${SITE}/covers/${project.slug}.webp` : `${SITE}/covers/tribunal.webp`
+  const image = project ? `${SITE}/covers/${project.slug}.webp` : demo ? `${SITE}/covers/${demo.cover}.webp` : `${SITE}/covers/tribunal.webp`
 
   const tags = [
     `<title>${esc(title)}</title>`,
@@ -31,7 +38,7 @@ function headFor(url: string): string {
     `<meta property="og:image" content="${image}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
   ]
-  if (!project && !immigration) {
+  if (!project && !demo) {
     const person = {
       '@context': 'https://schema.org',
       '@graph': [

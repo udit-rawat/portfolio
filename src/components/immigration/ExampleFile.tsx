@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { MiniDoc, type DocKind } from './MiniDoc'
-import { leadEase, springs } from './springs'
+import { leadEase, springs } from '../shared/springs'
 
 /*
   One made-up file, already checked. Nothing to run or learn:

@@ -16,7 +16,13 @@ function wasDismissed(): boolean {
 }
 
 /* A small corner card after two minutes on the page. Never blocks the page, shows once per visit. */
-export function BookingNudge() {
+export function BookingNudge({
+  title = 'Want this on your files?',
+  text = "15 minutes, on your schedule. We'll walk you through it.",
+}: {
+  title?: string
+  text?: string
+}) {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -50,8 +56,8 @@ export function BookingNudge() {
           <button type="button" onClick={dismiss} aria-label="Close" className="absolute top-1 right-1 grid size-10 place-items-center rounded-full text-[20px] text-ink-faint hover:bg-black/5 hover:text-ink">
             ×
           </button>
-          <p className="pr-6 text-[15px] font-semibold tracking-tight">Want this on your files?</p>
-          <p className="mt-1 text-[13.5px] text-ink-soft">15 minutes, on your schedule. We'll walk you through it.</p>
+          <p className="pr-6 text-[15px] font-semibold tracking-tight">{title}</p>
+          <p className="mt-1 text-[13.5px] text-ink-soft">{text}</p>
           <SpringButton href={contact.booking} onClick={dismiss} size="sm" className="mt-3">
             Book 15 minutes
           </SpringButton>
