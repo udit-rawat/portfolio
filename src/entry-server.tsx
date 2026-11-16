@@ -6,18 +6,20 @@ import { IMMIGRATION_TITLE, IMMIGRATION_DESCRIPTION } from './pages/ImmigrationP
 import { ADS_TITLE, ADS_DESCRIPTION } from './pages/AdsPage.tsx'
 import { PAPER_TITLE, PAPER_DESCRIPTION } from './pages/PaperPage.tsx'
 import { DOCS_TITLE, DOCS_DESCRIPTION } from './pages/DocsPage.tsx'
+import { LAB_TITLE, LAB_DESCRIPTION } from './pages/LabPage.tsx'
 
 const SITE = 'https://uditrawat.dev'
 const HOME_TITLE = 'Udit Rawat, AI Consultant'
 const HOME_DESCRIPTION =
   'Udit Rawat builds AI systems and websites that hold up in production. Offline models on phones, agents with evals, LLM cost cuts, and Shopify stores. Taking freelance projects.'
 
-/* Demo pages that live at their own address, with their own title and poster. */
+/* Pages that live at their own address, with their own title and poster: the demos and the Lab. */
 const DEMOS: Record<string, { title: string; description: string; cover: string }> = {
   '/immigration': { title: IMMIGRATION_TITLE, description: IMMIGRATION_DESCRIPTION, cover: 'clean-file' },
-  '/ad2client': { title: ADS_TITLE, description: ADS_DESCRIPTION, cover: 'ad2client' },
-  '/paper2paid': { title: PAPER_TITLE, description: PAPER_DESCRIPTION, cover: 'paper2paid' },
-  '/doc2answer': { title: DOCS_TITLE, description: DOCS_DESCRIPTION, cover: 'doc2answer' },
+  '/payback': { title: ADS_TITLE, description: ADS_DESCRIPTION, cover: 'payback' },
+  '/signed-off': { title: PAPER_TITLE, description: PAPER_DESCRIPTION, cover: 'signed-off' },
+  '/know-how': { title: DOCS_TITLE, description: DOCS_DESCRIPTION, cover: 'know-how' },
+  '/lab': { title: LAB_TITLE, description: LAB_DESCRIPTION, cover: 'hrm' },
 }
 
 /* Every page that gets its own static HTML file at build time. */

@@ -7,7 +7,7 @@ import { carrier } from '../components/paper/data'
 import { BookingNudge } from '../components/shared/BookingNudge'
 import { SpringButton } from '../components/shared/SpringButton'
 
-export const PAPER_TITLE = 'Paper2Paid: invoice the same day the job is done'
+export const PAPER_TITLE = 'Signed Off: invoice the same day the job is done'
 export const PAPER_DESCRIPTION =
   'Your drivers or crew send a photo of the signed paperwork. We read it, check it against the job, catch problems on the spot, and get the invoice out the same day.'
 

@@ -7,7 +7,7 @@ import { company } from '../components/docs/data'
 import { BookingNudge } from '../components/shared/BookingNudge'
 import { SpringButton } from '../components/shared/SpringButton'
 
-export const DOCS_TITLE = 'Doc2Answer: answers from your own documents, with the page they came from'
+export const DOCS_TITLE = 'Know How: answers from your own documents, with the page they came from'
 export const DOCS_DESCRIPTION =
   'Your team asks in plain words. The answer comes from your manuals, policies and price lists, with the exact page it came from, and anything not written down gets flagged.'
 

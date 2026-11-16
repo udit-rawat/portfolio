@@ -18,6 +18,7 @@ export function Footer() {
             <span>© 2026 Udit Rawat</span>
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <li><a className="hover:text-ink" href="/lab">Lab</a></li>
             <li><a className="hover:text-ink" href={`mailto:${contact.email}`}>Email</a></li>
             <li><a className="hover:text-ink" href={contact.github}>GitHub</a></li>
             <li><a className="hover:text-ink" href={contact.linkedin}>LinkedIn</a></li>

@@ -5,7 +5,7 @@ import { ExampleMonth } from '../components/ads/ExampleMonth'
 import { BookingNudge } from '../components/shared/BookingNudge'
 import { SpringButton } from '../components/shared/SpringButton'
 
-export const ADS_TITLE = 'Ad2Client: see which Meta ads actually make money'
+export const ADS_TITLE = 'Payback: see which Meta ads actually make money'
 export const ADS_DESCRIPTION =
   'We connect your Meta ads, your messages and your Shopify sales or bookings, and every week tell you which ads actually make money.'
 

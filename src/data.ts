@@ -18,6 +18,8 @@ export const categories: { id: Category | 'all'; label: string }[] = [
 ]
 
 export type Project = {
+  /** Engineering experiments: shown on /lab, not on the client-facing homepage. */
+  lab?: boolean
   slug: string
   /** Where the folder opens, when the project has its own page instead of /work/<slug>. */
   href?: string
@@ -48,9 +50,9 @@ export const projects: Project[] = [
     category: 'agents',
     year: '2026',
     role: 'Solo, open source',
-    oneLiner: 'A fact-checker where two agents argue and plain code checks every quote.',
-    points: ['Prosecutor and Defender argue opposite sides', 'A string-match verifier strikes fake quotes', 'Ships as CLI, MCP server and web UI'],
-    chip: ['96% grounding', '83% polarity', '32 claims'],
+    oneLiner: 'A multi-agent workflow: two AI agents argue a claim, and plain code checks every quote before a verdict.',
+    points: ['Two agents argue opposite sides', 'Code strikes any quote not in the source', 'Runs as a command, a server and a web app'],
+    chip: ['multi-agent', '96% of quotes grounded'],
     paper: '#D8D5CE',
     ink: '#C8161D',
     links: [{ label: 'GitHub', href: 'https://github.com/udit-rawat/tribunal' }],
@@ -63,6 +65,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'planrail',
+    lab: true,
     title: 'planrail',
     category: 'agents',
     year: '2026',
@@ -87,9 +90,9 @@ export const projects: Project[] = [
     category: 'agents',
     year: '2026',
     role: 'Solo, open source',
-    oneLiner: 'An LLM learns a task inside an app with no API, then replays it with no model.',
-    points: ['Learns once, replays deterministically', 'Hands control to a human when unsafe', '17 scenarios with screenshot evidence'],
-    chip: ['20/20 replays', '0 drift', '17 scenarios'],
+    oneLiner: 'Automates old software that cannot connect to anything: AI learns the task once, then it repeats with no AI needed.',
+    points: ['Works inside software with no API', 'Learns once, repeats the same way every time', 'Hands over to a person when unsure'],
+    chip: ['20 of 20 repeats', 'no AI per run'],
     paper: '#BCCDE0',
     ink: '#21498A',
     links: [{ label: 'GitHub', href: 'https://github.com/udit-rawat/muscle-memory' }],
@@ -101,6 +104,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'context-lab',
+    lab: true,
     title: 'Context Lab',
     category: 'agents',
     year: '2026',
@@ -138,9 +142,9 @@ export const projects: Project[] = [
     fallsShort: 'The demo is scripted. The review pipeline behind it is being built with our first pilot firms.',
   },
   {
-    slug: 'ad2client',
-    href: '/ad2client',
-    title: 'Ad2Client',
+    slug: 'payback',
+    href: '/payback',
+    title: 'Payback',
     category: 'demo',
     year: '2026',
     role: 'Product, for businesses that run on Meta ads',
@@ -149,7 +153,7 @@ export const projects: Project[] = [
     chip: ['live demo', 'Meta + Shopify', 'weekly report'],
     paper: '#DCE6EF',
     ink: '#14233A',
-    links: [{ label: 'Try the demo', href: '/ad2client' }],
+    links: [{ label: 'Try the demo', href: '/payback' }],
     stack: 'React, Motion. Meta messaging integration in development.',
     body: [
       'An ad-to-client pipeline for local businesses that run on Facebook and Instagram ads: every comment and message answered in seconds through Meta\'s official tools, the same qualifying questions every time, good leads booked onto the calendar, and anything sensitive handed to a person.',
@@ -158,9 +162,9 @@ export const projects: Project[] = [
     fallsShort: 'The demo is scripted with a made-up business. The live integration is being built with our first pilot clients.',
   },
   {
-    slug: 'paper2paid',
-    href: '/paper2paid',
-    title: 'Paper2Paid',
+    slug: 'signed-off',
+    href: '/signed-off',
+    title: 'Signed Off',
     category: 'demo',
     year: '2026',
     role: 'Product, for businesses that bill from signed paperwork',
@@ -169,7 +173,7 @@ export const projects: Project[] = [
     chip: ['live demo', 'photo in', 'invoice out'],
     paper: '#DDE6D3',
     ink: '#1C3324',
-    links: [{ label: 'Try the demo', href: '/paper2paid' }],
+    links: [{ label: 'Try the demo', href: '/signed-off' }],
     stack: 'React, Motion. Document reading pipeline in development.',
     body: [
       'A paperwork-to-payment pipeline for small fleets: drivers send a photo of the signed proof of delivery over WhatsApp, every field is read and checked against the rate confirmation and bill of lading, and problems like a missing signature are caught while the driver is still at the dock.',
@@ -178,9 +182,9 @@ export const projects: Project[] = [
     fallsShort: 'The demo is scripted with a made-up carrier. The live pipeline is being built with our first pilot clients.',
   },
   {
-    slug: 'doc2answer',
-    href: '/doc2answer',
-    title: 'Doc2Answer',
+    slug: 'know-how',
+    href: '/know-how',
+    title: 'Know How',
     category: 'demo',
     year: '2026',
     role: 'Product, for teams that run on their own documents',
@@ -189,7 +193,7 @@ export const projects: Project[] = [
     chip: ['live demo', 'cited answers', 'gap report'],
     paper: '#E4DFF0',
     ink: '#231A3A',
-    links: [{ label: 'Try the demo', href: '/doc2answer' }],
+    links: [{ label: 'Try the demo', href: '/know-how' }],
     stack: 'React, Motion. Retrieval pipeline in development.',
     body: [
       'An internal assistant that answers from a company\'s own manuals, policies, price lists and emails. Every part of an answer points to the exact page it came from, and when nothing in the documents answers a question, it says so instead of guessing.',
@@ -199,6 +203,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'hrm',
+    lab: true,
     title: 'Hierarchical Reasoner',
     category: 'scratch',
     year: '2026',
@@ -218,6 +223,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'reposignal',
+    lab: true,
     title: 'RepoSignal',
     category: 'tools',
     year: '2026',
@@ -235,6 +241,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'animatic',
+    lab: true,
     title: 'Animatic',
     category: 'tools',
     year: '2026',
@@ -259,9 +266,9 @@ export const projects: Project[] = [
     category: 'client',
     year: '2026',
     role: 'My product',
-    oneLiner: 'Short animated reels that show how ML systems actually work.',
-    points: ['Optimizers, attention, model merging', 'Steer Adam on a live loss surface', 'Every reel made with Animatic'],
-    chip: ['adamax.dev', '@ada.max24'],
+    oneLiner: 'An automated pipeline that turns a written script into narrated, animated infographic reels.',
+    points: ['Script in, narrated reel out', 'Voice and visuals synced word by word', 'Runs the adamax.dev explainer channel'],
+    chip: ['automated reels', 'adamax.dev'],
     paper: '#161616',
     ink: '#E8513A',
     dark: true,
@@ -272,6 +279,7 @@ export const projects: Project[] = [
     stack: 'Animatic, GSAP, Canvas',
     body: [
       'An explainer channel and site for ML ideas that are easier to see than to read: why code models invent package names, why attention piles onto one token, how much memory fine-tuning really needs. The site opens on Adam running across a loss surface that you can steer yourself.',
+      'Every reel comes out of an automated pipeline: one written spec for the script and the visuals becomes a narrated, word-synced animation and an MP4. The same pipeline can turn a business\'s reports or product data into short explainer videos.',
     ],
   },
   {
@@ -426,3 +434,7 @@ export const contact = {
     '&body=' +
     encodeURIComponent('Hi Udit,\n\nWhat I want to build:\n\nRough timeline:\n\nBudget range:\n'),
 }
+
+/* What a client sees on the homepage, and the engineering work kept on /lab. */
+export const showcase = projects.filter((p) => !p.lab)
+export const labProjects = projects.filter((p) => p.lab)

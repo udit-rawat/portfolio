@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import { LayoutGroup, motion, useInView, useReducedMotion } from 'motion/react'
+import { useEffect, useState } from 'react'
+import { LayoutGroup, motion } from 'motion/react'
+import { DemoControls } from '../shared/DemoPlayer'
+import { useDemoPlayer } from '../shared/useDemoPlayer'
 import { Excerpt } from './Excerpt'
 import { ANSWER, CONFLICT, GAP, QUESTION, RIFFLE, SOURCES, company } from './data'
 import { springs } from '../shared/springs'
@@ -447,19 +449,9 @@ function Stage({ scene, run }: { scene: number; run: boolean }) {
 }
 
 export function AskAnimation() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { amount: 0.35 })
-  const reduced = useReducedMotion() ?? false
-  const [scene, setScene] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const playing = inView && !paused && !reduced
-  const run = !reduced
-
-  useEffect(() => {
-    if (!playing) return
-    const id = window.setTimeout(() => setScene((s) => (s + 1) % SCENES.length), SCENES[scene].ms)
-    return () => window.clearTimeout(id)
-  }, [playing, scene])
+  const { ref, scene, setScene, playing, still, toggle } = useDemoPlayer(SCENES)
+  const reduced = still
+  const run = !still
 
   const current = SCENES[scene]
 
@@ -484,28 +476,7 @@ export function AskAnimation() {
             <p className="mt-3 text-[16px] leading-[1.55] text-ink-soft">{current.text}</p>
           </motion.div>
         </div>
-        <div className="flex items-center gap-2">
-          {SCENES.map((s, i) => (
-            <button
-              key={s.title}
-              type="button"
-              aria-label={`Show step ${i + 1}: ${s.title}`}
-              aria-current={i === scene}
-              onClick={() => setScene(i)}
-              className="flex h-7 flex-1 cursor-pointer items-center"
-            >
-              <span className="block h-2 w-full overflow-hidden rounded-full bg-rule">
-                <span
-                  className={`block h-full rounded-full bg-ink transition-[width] ${i <= scene ? 'w-full' : 'w-0'}`}
-                  style={i === scene && playing ? { transitionDuration: `${s.ms}ms`, transitionTimingFunction: 'linear' } : { transitionDuration: '0ms' }}
-                />
-              </span>
-            </button>
-          ))}
-          <button type="button" onClick={() => setPaused((p) => !p)} className="ml-2 min-h-9 rounded-full border border-rule px-3.5 text-[13px] text-ink-soft hover:text-ink">
-            {paused ? 'Play' : 'Pause'}
-          </button>
-        </div>
+        <DemoControls scenes={SCENES} scene={scene} setScene={setScene} playing={playing} onToggle={toggle} />
       </div>
     </div>
   )

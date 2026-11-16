@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion, useScroll } from 'motion/react'
-import { categories, projectHref, projects, type Category, type Project } from '../data'
+import { categories, projectHref, showcase as projects, type Category, type Project } from '../data'
 import { Folder, shade } from './Folder'
 
 const COPIES = 3 // sebneil's ring is dense; each project appears three times around it
@@ -178,7 +178,7 @@ function Filters({ value, onChange }: { value: Category | 'all'; onChange: (c: C
       className="-mx-4 flex max-w-[100vw] overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0"
     >
       <div className="flex shrink-0 gap-0.5 rounded-full bg-ink p-1">
-        {categories.map((c) => {
+        {categories.filter((c) => c.id === 'all' || projects.some((p) => p.category === c.id)).map((c) => {
           const active = value === c.id
           return (
             <button
