@@ -58,13 +58,13 @@ export function Ring() {
   const n = panes.length
 
   return (
-    <section id="work" ref={section} aria-labelledby="work-h" className="relative">
+    <section id="everything" ref={section} aria-labelledby="work-h" className="relative hidden sm:block">
       <div className="relative flex h-auto flex-col overflow-hidden sm:h-[min(100svh,880px)] sm:min-h-[560px]">
         <div className="relative z-10 px-4 pt-6 sm:px-8">
         <div className="mx-auto flex max-w-[1120px] flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 id="work-h" className="text-[clamp(1.8rem,3.4vw,2.6rem)] leading-none font-semibold tracking-[-0.03em]">
-              Work
+              Everything we've built
             </h2>
             <p className="mt-2 text-[14px] text-ink-soft">
               {projects.length} projects.{' '}

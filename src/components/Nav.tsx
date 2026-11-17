@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { brand, contact } from '../data'
 
 const links = [
-  { label: 'Work', href: '/#work' },
-  { label: 'How it works', href: '/#journey' },
+  { label: 'Demos', href: '/#work' },
   { label: 'Services', href: '/#services' },
+  { label: 'How it works', href: '/#journey' },
+  { label: 'Team', href: '/#team' },
 ]
 
 const pill =
@@ -19,7 +21,7 @@ export function Nav() {
       <nav aria-label="Main" className="pointer-events-auto relative flex w-full max-w-[1120px] items-center justify-between gap-2">
         <div className={`flex items-center gap-1 p-1.5 pr-2 ${pill}`}>
           <Link to="/" className="rounded-xl px-3 py-1.5 text-[15px] font-semibold tracking-tight">
-            Udit Rawat
+            {brand.name}
           </Link>
           <ul className="hidden items-center sm:flex">
             {links.map((l) => (
@@ -44,6 +46,12 @@ export function Nav() {
           </button>
         </div>
 
+        <a
+          href={contact.booking}
+          className={`hidden rounded-2xl bg-ink px-4 py-2.5 text-[14px] font-medium text-ground shadow-[0_6px_24px_rgb(0_0_0/0.12)] transition-colors hover:bg-black sm:inline-block`}
+        >
+          Book a call
+        </a>
 
         {open && (
             <ul
@@ -57,6 +65,11 @@ export function Nav() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a href={contact.booking} className="mt-1 block rounded-xl bg-ink px-3.5 py-3 text-[16px] font-medium text-ground">
+                  Book a call
+                </a>
+              </li>
             </ul>
         )}
       </nav>

@@ -1,23 +1,26 @@
-# Udit Rawat
+# Udit Rawat & team
 
-> AI consultant based in New Delhi. Builds production LLM systems, on-device models, multi-agent tools, and Shopify stores. Taking freelance website and AI enablement projects.
+> AI automation for small businesses, from Toronto and New Delhi. We connect the tools a business already uses (Meta, Shopify, WhatsApp, QuickBooks, its documents), automate the repetitive work, and send a one-page report every week on what is working. Serving businesses in Canada and the US.
 
-## Services
-- AI audits: review of LLM cost, reliability, and evaluation for an existing product
-- RAG and support-triage pilots
-- LLM cost and routing reviews
-- Shopify storefronts with email and Flow automation
+## What we do
+- [Payback](https://uditrawat.dev/payback/): connects Meta ads, comments and messages to Shopify sales or bookings, and shows each week which ads make money.
+- [Signed Off](https://uditrawat.dev/signed-off/): reads photos of signed paperwork, checks them against the job, and gets the invoice out the same day.
+- [Clean File](https://uditrawat.dev/immigration/): cross-checks every name, date and number across a file before it is submitted.
+- [Know How](https://uditrawat.dev/know-how/): answers staff questions from a company's own documents, citing the page each answer came from.
+- Shopify stores with email and order automation.
+- Custom automation, scoped and agreed before work starts.
 
-## Projects
-- [Tribunal](https://uditrawat.dev/work/tribunal/): multi-agent fact-checker with a deterministic citation verifier. 96% quote grounding on a 32-claim golden set.
-- [LLM gateway at TapHealth](https://uditrawat.dev/): 85% lower LLM cost on one nudge pipeline after April fixes (private codebase); gateway with ordered fallbacks.
-- [Offline diabetes model](https://uditrawat.dev/): quantized Qwen model running fully on a Snapdragon phone at 380 MB.
+## Shipped work
 - [Misaanjh](https://uditrawat.dev/work/misaanjh/): live Shopify storefront with in-house email and Flow automation.
-- [Context Lab](https://uditrawat.dev/work/context-lab/): benchmark of repo context strategies, with cost per answer.
-- [Glassbox](https://uditrawat.dev/work/glassbox/): GPT built from first principles in PyTorch, with a live attention visualizer.
+- [AdaMax](https://uditrawat.dev/work/adamax/): automated pipeline that turns a written script into narrated, animated infographic reels.
+- [Tribunal](https://uditrawat.dev/work/tribunal/): multi-agent workflow with a deterministic quote verifier; 96% quote grounding on a 32-claim set.
+- [muscle-memory](https://uditrawat.dev/work/muscle-memory/): automates software with no API; AI learns a task once, then it replays with no model in the loop.
+- LLM cost: 85% lower running cost on one production pipeline at TapHealth (private codebase).
+- On-device ML: a quantized model running fully offline on a budget Snapdragon phone.
+
+## More
+- [Lab](https://uditrawat.dev/lab/): research reproductions, retrieval experiments and developer tools.
 
 ## Contact
+- Book 15 minutes: https://calendar.app.google/DcnGVWRMq77gXdJi7
 - Email: hello@uditrawat.dev
-- Portfolio: https://uditrawat.dev/
-- GitHub: https://github.com/udit-rawat
-- LinkedIn: https://linkedin.com/in/udit-r

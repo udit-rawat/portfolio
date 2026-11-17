@@ -1,68 +1,69 @@
-import { contact } from '../data'
+import { Link } from 'react-router-dom'
+import { brand, contact, proofs } from '../data'
 import { Rich } from './Rich'
 import { useClock } from './useClock'
-import { asset } from '../asset'
+import { DemoReel } from './DemoReel'
+import { SpringButton } from './shared/SpringButton'
 
-/* Hero: a mikes.cv style log block, then the pitch. Speaks to clients and recruiters at once. */
-export function Hero() {
-  const time = useClock()
+function CityClock({ city, tz }: { city: string; tz: string }) {
+  const time = useClock(tz)
   return (
-    <section className="ground-wash px-4 pt-28 pb-10 sm:px-8 sm:pt-36">
-      <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10">
+    <span className="whitespace-nowrap">
+      {city} <span className="text-ink">{time}</span>
+    </span>
+  )
+}
+
+/* Hero: what we do for a business owner, the demos as proof, and one way to start. */
+export function Hero() {
+  return (
+    <section className="ground-wash px-4 pt-28 pb-12 sm:px-8 sm:pt-36">
+      <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end lg:gap-14">
         <div className="min-w-0">
-        <dl className="mono grid w-fit max-w-full grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-0.5 border-l border-dotted border-ink-faint pl-3 text-[11.5px] leading-[1.6] text-ink-soft">
-          <dt className="text-ink-faint">based</dt>
-          <dd>New Delhi, IN</dd>
-          <dt className="text-ink-faint">coords</dt>
-          <dd>28.6139° N, 77.2090° E</dd>
-          <dt className="text-ink-faint">local</dt>
-          <dd>
-            {time} IST, GMT+5:30
-          </dd>
-          <dt className="text-ink-faint">status</dt>
-          <dd className="flex items-center gap-1.5">
-            <span className="inline-block size-1.5 rounded-full bg-[#2f9e5b]" aria-hidden="true" />
-            taking freelance projects, open to contracts
-          </dd>
-        </dl>
-
-        <h1 className="mt-8 max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.6rem)] sm:mt-10 leading-[0.95] font-semibold tracking-[-0.04em] text-balance">
-          AI systems and websites, built to hold up.
-        </h1>
-
-        <p className="mt-7 max-w-[56ch] text-[clamp(1.05rem,1.6vw,1.22rem)] leading-[1.55] text-ink-soft">
-          <Rich
-            text="I'm Udit, an AI consultant in New Delhi. I shipped a diabetes model that runs offline on a Snapdragon 680 phone, cut one nudge pipeline's LLM cost by [[85%::Measured on TapHealth's nudge pipeline after its April P0 fixes, which also cut latency 20% and storage 60%. Private codebase.]], and built misaanjh.com end to end. I take on website and AI projects directly, and I'm open to contract roles."
-          />
-        </p>
-
-        <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <a
-            href={contact.projectMail}
-            className="rounded-full bg-ink px-5 py-3 text-[15px] font-medium text-ground transition-colors hover:bg-black cta-attention"
-          >
-            Start a project
-          </a>
-          <a href="#work" className="text-[15px] font-medium underline decoration-ink/30 underline-offset-4 hover:decoration-ink">
-            See the work
-          </a>
+          <p className="mono flex flex-wrap items-center gap-x-4 gap-y-1 border-l border-dotted border-ink-faint pl-3 text-[11.5px] leading-[1.6] text-ink-soft">
+            {brand.cities.map((c) => (
+              <CityClock key={c.city} city={c.city} tz={c.tz} />
+            ))}
+            <span className="flex items-center gap-1.5">
+              <span className="inline-block size-1.5 rounded-full bg-[#2f9e5b]" aria-hidden="true" />
+              taking new clients for December
+            </span>
+          </p>
+          <h1 className="mt-8 max-w-[16ch] text-[clamp(2.5rem,6.8vw,5.2rem)] leading-[0.96] font-semibold tracking-[-0.04em] text-balance sm:mt-10">
+            We connect your tools and take the busywork off your team.
+          </h1>
+          <p className="mt-7 max-w-[56ch] text-[clamp(1.05rem,1.6vw,1.22rem)] leading-[1.55] text-ink-soft">
+            We connect the tools you already use, like Meta, Shopify, WhatsApp, QuickBooks and your documents, automate the repetitive work,
+            and send you a one-page report every week on what's working.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <SpringButton href={contact.booking}>Book 15 minutes</SpringButton>
+            <a href="#work" className="text-[15px] font-medium underline decoration-ink/30 underline-offset-4 hover:decoration-ink">
+              See the demos
+            </a>
+          </div>
         </div>
-        </div>
+        <DemoReel />
+      </div>
 
-        <figure className="relative mx-auto w-full max-w-[400px] min-w-0 self-end lg:mx-0 lg:-mb-6">
-          <img
-            src={asset('art/school-of-athens.webp')}
-            alt="Raphael's School of Athens: Plato and Aristotle walk forward under the arches, surrounded by philosophers deep in conversation."
-            width={400}
-            height={540}
-            className="block h-auto w-full rounded-[6px] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_18px_40px_-12px_rgb(40_30_20/0.35)] select-none"
-            draggable={false}
-          />
-          <figcaption className="mt-4 text-[13.5px] leading-[1.55] text-ink-soft">
-            Curiosity never stops, and neither does my passion to explore the unknown in the field I love most.
-            <span className="mono mt-1.5 block text-[11px] text-ink-faint">Raphael, The School of Athens, 1511</span>
-          </figcaption>
-        </figure>
+      {/* Real results from shipped work */}
+      <div className="mx-auto mt-16 max-w-[1120px] border-t border-rule pt-6">
+        <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-3">
+          {proofs.map((p) => (
+            <li key={p.label} className="text-[15px] leading-[1.45]">
+              <span className="mono block text-[11px] tracking-wide text-ink-faint uppercase">{p.label}</span>
+              <span className="mt-1 block">
+                {p.href ? (
+                  <Link to={p.href} className="underline decoration-ink/25 underline-offset-4 hover:decoration-ink">
+                    <Rich text={p.text} />
+                  </Link>
+                ) : (
+                  <Rich text={p.text} />
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

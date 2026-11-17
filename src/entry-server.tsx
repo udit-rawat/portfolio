@@ -1,7 +1,8 @@
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import App from './App.tsx'
-import { projects, contact } from './data.ts'
+import { brand, projects, contact } from './data.ts'
+import { HOME_TITLE, HOME_DESCRIPTION } from './home.ts'
 import { IMMIGRATION_TITLE, IMMIGRATION_DESCRIPTION } from './pages/ImmigrationPage.tsx'
 import { ADS_TITLE, ADS_DESCRIPTION } from './pages/AdsPage.tsx'
 import { PAPER_TITLE, PAPER_DESCRIPTION } from './pages/PaperPage.tsx'
@@ -9,10 +10,6 @@ import { DOCS_TITLE, DOCS_DESCRIPTION } from './pages/DocsPage.tsx'
 import { LAB_TITLE, LAB_DESCRIPTION } from './pages/LabPage.tsx'
 
 const SITE = 'https://uditrawat.dev'
-const HOME_TITLE = 'Udit Rawat, AI Consultant'
-const HOME_DESCRIPTION =
-  'Udit Rawat builds AI systems and websites that hold up in production. Offline models on phones, agents with evals, LLM cost cuts, and Shopify stores. Taking freelance projects.'
-
 /* Pages that live at their own address, with their own title and poster: the demos and the Lab. */
 const DEMOS: Record<string, { title: string; description: string; cover: string }> = {
   '/immigration': { title: IMMIGRATION_TITLE, description: IMMIGRATION_DESCRIPTION, cover: 'clean-file' },
@@ -49,25 +46,23 @@ function headFor(url: string): string {
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@type': 'ProfessionalService',
+          '@id': `${SITE}/#business`,
+          name: brand.team,
+          description: HOME_DESCRIPTION,
+          url: SITE,
+          email: contact.email,
+          areaServed: ['Canada', 'United States'],
+          address: brand.cities.map((c) => ({ '@type': 'PostalAddress', addressLocality: c.city, addressCountry: c.city === 'Toronto' ? 'CA' : 'IN' })),
+          founder: { '@id': `${SITE}/#udit` },
+          serviceType: ['Ad and sales tracking for Meta and Shopify', 'Paperwork to invoice automation', 'Document checking', 'Internal document question answering', 'Shopify store automation'],
+        },
+        {
           '@type': 'Person',
           '@id': `${SITE}/#udit`,
           name: 'Udit Rawat',
           url: SITE,
-          email: contact.email,
-          jobTitle: 'AI Consultant',
-          address: { '@type': 'PostalAddress', addressLocality: 'New Delhi', addressCountry: 'IN' },
-          sameAs: [contact.github, contact.linkedin],
-          knowsAbout: ['Large language models', 'RAG', 'AI agents', 'Evals', 'On-device ML', 'Shopify automation'],
-        },
-        {
-          '@type': 'ProfessionalService',
-          '@id': `${SITE}/#service`,
-          name: 'Udit Rawat, AI Consultant',
-          url: SITE,
-          provider: { '@id': `${SITE}/#udit` },
-          email: contact.email,
-          areaServed: 'Worldwide',
-          serviceType: ['AI document processing', 'Support triage automation', 'LLM evaluation and reliability', 'Shopify store automation'],
+          jobTitle: 'Founder and AI engineer',
         },
       ],
     }

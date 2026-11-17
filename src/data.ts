@@ -367,59 +367,109 @@ export const papers = [
   { title: 'Boosting Algorithms for Class Imbalance', where: 'SSWC 2025' },
 ]
 
+/* The agency's name, line and places. One place to change when the brand moves to its own domain. */
+export const brand = {
+  name: 'Udit Rawat',
+  team: 'Udit Rawat & team',
+  line: 'AI automation for small businesses',
+  cities: [
+    { city: 'Toronto', tz: 'America/Toronto' },
+    { city: 'New Delhi', tz: 'Asia/Kolkata' },
+  ],
+}
+
+/* Who a client works with: first names and what each person does on a project. */
+export const team = [
+  {
+    name: 'Udit',
+    role: 'Builds it',
+    city: 'New Delhi',
+    text: 'Designs and builds every system: the AI, the connections between your tools, and the weekly report. Has shipped AI agents, on-device models and Shopify stores to production.',
+  },
+  {
+    name: 'Joy',
+    role: 'Meets you in person',
+    city: 'Toronto',
+    text: 'Visits businesses around Toronto to see the problem first-hand and walk through the demos with you.',
+  },
+  {
+    name: 'Aiky',
+    role: 'Runs your project',
+    city: 'India',
+    text: 'Your main contact from the first call: scope, weekly updates, and keeping the work on schedule.',
+  },
+]
+
+/* Real results from shipped work, shown under the hero. */
+export const proofs = [
+  { text: 'A live Shopify store, built end to end', href: '/work/misaanjh', label: 'Misaanjh' },
+  {
+    text: "Cut a production AI pipeline's running cost by [[85%::Measured on TapHealth's nudge pipeline after its April P0 fixes, which also cut latency 20% and storage 60%. Private codebase.]]",
+    label: 'TapHealth',
+  },
+  { text: 'An AI model that runs offline on a budget phone', label: 'On-device ML' },
+]
+
 export const services = [
   {
-    title: 'Document processing workflows',
-    lede: 'Pull the data out of invoices, forms, contracts, or applications and send it to your sheet, CRM, or database. Anything unclear goes to a person for review, so nothing is silently wrong.',
-    proof: 'Method: the measured quality check behind Tribunal, which reaches 96% quote grounding on a 32 claim test set.',
-    proofHref: '/work/tribunal',
-    includes: ['Extraction rules agreed with you before the build', 'People review low confidence items', 'Output sent straight to your systems', 'A quality report from a test set you can keep'],
+    title: 'Know which ads pay back',
+    lede: 'We connect your Meta ads, comments and messages to your Shopify sales or bookings, answer every message, and tell you each week which ads actually make money.',
+    proof: 'See it working: Payback',
+    proofHref: '/payback',
+    includes: ['Comments and messages answered, day or night', 'Sales and bookings matched to each ad', 'A one-page report every Monday', "Runs on Meta's official tools"],
   },
   {
-    title: 'Support triage and resolution',
-    lede: 'Read every incoming request, sort it by type and urgency, draft the reply, and route anything sensitive to the right person.',
-    proof: 'Proof: the coaching agents I built at TapHealth, with 25 tools and bounded tool calling.',
-    proofHref: '/#work',
-    includes: ['Categories and urgency rules set with you', 'Drafted replies a person approves before sending', 'Refunds, complaints, and edge cases escalated', 'A weekly summary of volume and outcomes'],
+    title: 'Get paid faster',
+    lede: 'Your team sends photos of signed paperwork. We read them, check them against the job, catch problems on the spot, and get the invoice out the same day.',
+    proof: 'See it working: Signed Off',
+    proofHref: '/signed-off',
+    includes: ['Reads photos sent over WhatsApp or text', 'Checks against the job before billing', 'Invoices into QuickBooks or to your factoring company', 'A weekly report on cash waiting on paperwork'],
   },
   {
-    title: 'Reliability and evals for AI features',
-    lede: 'Find out whether your AI feature really works. I build a test set, measure quality, and set up checks so a change that breaks something is caught before customers see it.',
-    proof: 'Proof: Tribunal, with measured results on a 32 claim set and a documented failure mode.',
-    proofHref: '/work/tribunal',
-    includes: ['A test set built from real examples', 'Quality scores before and after each change', 'Regression checks you can run yourself', 'A written report on where the feature fails'],
+    title: 'Check documents before they go out',
+    lede: 'Every name, date and number cross-checked across a file before it is submitted or sent, with each mismatch listed for a person to fix.',
+    proof: 'See it working: Clean File',
+    proofHref: '/immigration',
+    includes: ['Forms checked against the supporting documents', 'Mismatches flagged, nothing changed silently', "Follow-ups drafted in the client's own language", 'Works with PDFs and scans'],
+  },
+  {
+    title: 'Answers from your own documents',
+    lede: 'Your team asks in plain words and gets answers from your manuals, policies and price lists, with the page each answer came from.',
+    proof: 'See it working: Know How',
+    proofHref: '/know-how',
+    includes: ['Every answer shows its page', 'No source, no answer', 'Flags missing and out-of-date documents', 'Works in Slack, Teams, WhatsApp or the browser'],
   },
   {
     title: 'Shopify store with automation',
-    lede: 'A storefront built end to end, with email and Flow automation that runs on Shopify alone. Handed over ready for you to run.',
-    proof: 'Proof: Misaanjh, a live Shopify store with in-house email and Flow automation.',
+    lede: 'A storefront built end to end, with email and order automation that runs on Shopify alone. Handed over ready for you to run.',
+    proof: 'See it live: Misaanjh',
     proofHref: '/work/misaanjh',
-    includes: ['Storefront design and build', 'Welcome and order automation in Shopify Email and Flow', 'Mobile, speed, and tracking checks', 'A handover call so you can edit it yourself'],
+    includes: ['Storefront design and build', 'Welcome and order automation in Shopify Email and Flow', 'Mobile, speed and tracking checks', 'A handover call so you can edit it yourself'],
   },
   {
-    title: 'Bespoke build',
-    lede: 'A custom AI workflow designed around how your team already works. Scope and acceptance criteria are agreed up front, through the same six stages as every project.',
-    proof: 'Method: the same staged process and revision terms used on every project.',
+    title: 'Something else',
+    lede: "Something else eating your team's time? We design an automation around how your team already works, with the scope and a definition of done agreed before we start.",
+    proof: 'How we work',
     proofHref: '/#journey',
-    includes: ['Start from the process you want to change', 'Scope and acceptance criteria agreed before the build', 'Built, tested, and handed over with documentation', 'Two rounds of revisions after handover'],
+    includes: ['Starts from the process you have today', 'Scope and acceptance criteria agreed first', 'A person approves anything risky', 'Handover with a walkthrough'],
   },
 ]
 
 export const alsoAvailable = [
   'Lead follow-up automation',
-  'LLM cost and routing review',
-  'Internal document Q and A',
-  'UI automation for tools without an API',
-  'AI coding setup for engineering teams',
-  'Monthly support on systems I have built',
+  'Automating old software with no API',
+  'Automated explainer videos and infographics',
+  'Multi-agent workflows',
+  'AI quality checks and evals',
+  'Monthly support on what we build',
 ]
 
 export const steps = [
-  { title: 'Talk', text: 'A short call to understand the problem and what it costs you. I reply within a day.', doing: 'Tell me the problem, your goal, and any constraints.', gets: 'A written summary of the problem to confirm before we go further.' },
-  { title: 'Scope', text: 'We agree on the first piece of work, with a clear definition of done for each part.', doing: 'Review the scope and tell me what to change.', gets: 'A written scope you can sign off on, with acceptance criteria.' },
-  { title: 'Build', text: 'I build in short cycles with a weekly update.', doing: 'Check each update and send your feedback in one message.', gets: 'A working version you can see and test, not only a plan.' },
+  { title: 'Talk', text: 'A 15-minute call to understand the problem and what it costs you. We reply within a day.', doing: 'Tell us the problem, your goal, and any constraints.', gets: 'A written summary of the problem to confirm before we go further.' },
+  { title: 'Scope', text: 'We agree on the first piece of work, with a clear definition of done for each part.', doing: 'Review the scope and tell us what to change.', gets: 'A written scope you can sign off on, with acceptance criteria.' },
+  { title: 'Build', text: 'We build in short cycles, with an update every week.', doing: 'Check each update and send your feedback in one message.', gets: 'A working version you can see and test, not only a plan.' },
   { title: 'Review', text: 'You test the work against the agreed criteria, and we fix anything that does not match.', doing: 'Test it and send your feedback together.', gets: 'Two rounds of revisions after handover, for defects and small adjustments to the agreed work. New steps are scoped separately.' },
-  { title: 'Handover', text: 'Everything is delivered with a walkthrough, so you can run it without me.', doing: 'Confirm the handover is complete.', gets: 'The code, documentation, access, and a walkthrough call.' },
+  { title: 'Handover', text: 'Everything is delivered with a walkthrough, so you can run it without us.', doing: 'Confirm the handover is complete.', gets: 'The code, documentation, access, and a walkthrough call.' },
   { title: 'Keep going', text: 'If it works, we decide together on ongoing support or the next piece of work.', doing: 'Decide whether to continue.', gets: 'A monthly arrangement for ongoing work, with one named contact.' },
 ]
 
