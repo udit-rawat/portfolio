@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
-import { contact, proofs } from '../data'
-import { Rich } from './Rich'
+import { contact } from '../data'
 import { DemoReel } from './DemoReel'
 import { SpringButton } from './shared/SpringButton'
 
@@ -33,25 +31,6 @@ export function Hero() {
         <DemoReel />
       </div>
 
-      {/* Real results from shipped work */}
-      <div className="mx-auto mt-16 max-w-[1120px] border-t border-rule pt-6">
-        <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-3">
-          {proofs.map((p) => (
-            <li key={p.label} className="text-[15px] leading-[1.45]">
-              <span className="mono block text-[11px] tracking-wide text-ink-faint uppercase">{p.label}</span>
-              <span className="mt-1 block">
-                {p.href ? (
-                  <Link to={p.href} className="underline decoration-ink/25 underline-offset-4 hover:decoration-ink">
-                    <Rich text={p.text} />
-                  </Link>
-                ) : (
-                  <Rich text={p.text} />
-                )}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
     </section>
   )
 }

@@ -388,16 +388,6 @@ export const team = [
   },
 ]
 
-/* Real results from shipped work, shown under the hero. */
-export const proofs = [
-  { text: 'A live Shopify store, built end to end', href: '/work/misaanjh', label: 'Misaanjh' },
-  {
-    text: "Cut a production AI pipeline's running cost by [[85%::Measured on TapHealth's nudge pipeline after its April P0 fixes, which also cut latency 20% and storage 60%. Private codebase.]]",
-    label: 'TapHealth',
-  },
-  { text: 'An AI model that runs offline on a budget phone', label: 'On-device ML' },
-]
-
 export const services = [
   {
     title: 'Know which ads pay back',
