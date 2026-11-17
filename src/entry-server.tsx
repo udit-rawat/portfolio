@@ -53,7 +53,6 @@ function headFor(url: string): string {
           url: SITE,
           email: contact.email,
           areaServed: ['Canada', 'United States'],
-          address: brand.cities.map((c) => ({ '@type': 'PostalAddress', addressLocality: c.city, addressCountry: c.city === 'Toronto' ? 'CA' : 'IN' })),
           founder: { '@id': `${SITE}/#udit` },
           serviceType: ['Ad and sales tracking for Meta and Shopify', 'Paperwork to invoice automation', 'Document checking', 'Internal document question answering', 'Shopify store automation'],
         },

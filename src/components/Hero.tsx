@@ -1,18 +1,8 @@
 import { Link } from 'react-router-dom'
-import { brand, contact, proofs } from '../data'
+import { contact, proofs } from '../data'
 import { Rich } from './Rich'
-import { useClock } from './useClock'
 import { DemoReel } from './DemoReel'
 import { SpringButton } from './shared/SpringButton'
-
-function CityClock({ city, tz }: { city: string; tz: string }) {
-  const time = useClock(tz)
-  return (
-    <span className="whitespace-nowrap">
-      {city} <span className="text-ink">{time}</span>
-    </span>
-  )
-}
 
 /* Hero: what we do for a business owner, the demos as proof, and one way to start. */
 export function Hero() {
@@ -21,9 +11,6 @@ export function Hero() {
       <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end lg:gap-14">
         <div className="min-w-0">
           <p className="mono flex flex-wrap items-center gap-x-4 gap-y-1 border-l border-dotted border-ink-faint pl-3 text-[11.5px] leading-[1.6] text-ink-soft">
-            {brand.cities.map((c) => (
-              <CityClock key={c.city} city={c.city} tz={c.tz} />
-            ))}
             <span className="flex items-center gap-1.5">
               <span className="inline-block size-1.5 rounded-full bg-[#2f9e5b]" aria-hidden="true" />
               taking new clients for December

@@ -367,15 +367,11 @@ export const papers = [
   { title: 'Boosting Algorithms for Class Imbalance', where: 'SSWC 2025' },
 ]
 
-/* The agency's name, line and places. One place to change when the brand moves to its own domain. */
+/* The agency's name and line. One place to change when the brand moves to its own domain. */
 export const brand = {
   name: 'Udit Rawat',
   team: 'Udit Rawat & team',
   line: 'AI automation for small businesses',
-  cities: [
-    { city: 'Toronto', tz: 'America/Toronto' },
-    { city: 'New Delhi', tz: 'Asia/Kolkata' },
-  ],
 }
 
 /* Who a client works with: first names and what each person does on a project. */
@@ -383,19 +379,11 @@ export const team = [
   {
     name: 'Udit',
     role: 'Builds it',
-    city: 'New Delhi',
     text: 'Designs and builds every system: the AI, the connections between your tools, and the weekly report. Has shipped AI agents, on-device models and Shopify stores to production.',
-  },
-  {
-    name: 'Joy',
-    role: 'Meets you in person',
-    city: 'Toronto',
-    text: 'Visits businesses around Toronto to see the problem first-hand and walk through the demos with you.',
   },
   {
     name: 'Aiky',
     role: 'Runs your project',
-    city: 'India',
     text: 'Your main contact from the first call: scope, weekly updates, and keeping the work on schedule.',
   },
 ]

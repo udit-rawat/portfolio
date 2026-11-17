@@ -1,6 +1,6 @@
 # Udit Rawat & team
 
-> AI automation for small businesses, from Toronto and New Delhi. We connect the tools a business already uses (Meta, Shopify, WhatsApp, QuickBooks, its documents), automate the repetitive work, and send a one-page report every week on what is working. Serving businesses in Canada and the US.
+> AI automation for small businesses. We connect the tools a business already uses (Meta, Shopify, WhatsApp, QuickBooks, its documents), automate the repetitive work, and send a one-page report every week on what is working. Serving businesses in Canada and the US.
 
 ## What we do
 - [Payback](https://uditrawat.dev/payback/): connects Meta ads, comments and messages to Shopify sales or bookings, and shows each week which ads make money.
